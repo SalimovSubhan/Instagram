@@ -1,0 +1,7 @@
+{
+    "welcome": "Привет!",
+    "profile": {
+        "title": "Профиль",
+        "followers": "Подписчики: {count}"
+    }
+}

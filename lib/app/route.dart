@@ -1,11 +1,22 @@
 import 'package:go_router/go_router.dart';
-import 'package:instagramultra/core/storage/prefs_service.dart';
+import 'package:instagramultra/app/bottom_navigation.dart';
+import 'package:instagramultra/app/splash_screen.dart';
 import 'package:instagramultra/features/auth/presentation/screens/login_screen.dart';
 import 'package:instagramultra/features/auth/presentation/screens/register_screen.dart';
 import 'package:instagramultra/features/home/presentation/screens/home_screen.dart';
 
 final router = GoRouter(
   routes: [
+    //app
+    GoRoute(
+        path: '/botomNavigation',
+        builder: (context, state) =>
+            const BottomNavigation()), //ботом навигатсия
+
+    GoRoute(
+        path: '/splash',
+        builder: (context, state) => const SplashScreen()), // сплеш скрин
+
     //auth
     GoRoute(
         path: '/login',
@@ -21,16 +32,7 @@ final router = GoRouter(
         builder: (context, state) => const HomeScreen()), // Главный экран
   ],
   redirect: (context, state) async {
-    final isAuthPage = state.matchedLocation == '/login' ||
-        state.matchedLocation == '/register';
-    PrefsService prefs = PrefsService();
-    final token = await prefs.getToken();
-    if ((token == null || token.isEmpty) && !isAuthPage) {
-      return '/login';
-    }
-    if (token != null && token.isNotEmpty && isAuthPage) {
-      return '/';
-    }
-    return null;
+    if (state.matchedLocation == '/botomNavigation') return null;
+    return '/splash';
   },
 );

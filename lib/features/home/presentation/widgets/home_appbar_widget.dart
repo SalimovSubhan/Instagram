@@ -21,7 +21,7 @@ class _HomeAppbarWidgetState extends State<HomeAppbarWidget> {
         height: 15,
         decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('images/Instagram Logo.png'),
+                image: AssetImage('assets/images/Instagram Logo.png'),
                 fit: BoxFit.fitWidth)),
       ),
       actions: [

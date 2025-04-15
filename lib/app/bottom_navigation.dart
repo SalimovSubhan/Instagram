@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:instagramultra/features/home/presentation/screens/home_screen.dart';
 
-class BonnomNavigation extends StatefulWidget {
-  const BonnomNavigation({super.key});
+class BottomNavigation extends StatefulWidget {
+  const BottomNavigation({super.key});
 
   @override
-  State<BonnomNavigation> createState() => _BonnomNavigationState();
+  State<BottomNavigation> createState() => _BottomNavigationState();
 }
 
-class _BonnomNavigationState extends State<BonnomNavigation> {
+class _BottomNavigationState extends State<BottomNavigation> {
   int index = 0;
   final List<Widget> screens = [
     const HomeScreen(),

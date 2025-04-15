@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:instagramultra/app/bonnom_navigation.dart';
-import 'package:instagramultra/features/auth/presentation/screens/login_screen.dart';
 import 'package:instagramultra/core/storage/prefs_service.dart';
 
 class SplashScreen extends HookConsumerWidget {
@@ -11,23 +10,11 @@ class SplashScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     PrefsService prefs = PrefsService();
-
     useEffect(() {
       Future.delayed(const Duration(seconds: 2), () async {
         final String? tiken = await prefs.getToken();
-        tiken == null
-            ? Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const LoginScreen(),
-                ),
-              )
-            : Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const BonnomNavigation(),
-                ),
-              );
+        if (!context.mounted) return;
+        tiken == null ? context.go('/login') : context.go('/botomNavigation');
       });
       return null;
     }, []);
@@ -48,7 +35,7 @@ class SplashScreen extends HookConsumerWidget {
                 height: 100,
                 decoration: const BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage('images/Icon.png'),
+                        image: AssetImage('assets/images/Icon.png'),
                         fit: BoxFit.fill)),
               ),
             ),
