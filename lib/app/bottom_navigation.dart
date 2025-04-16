@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagramultra/features/home/presentation/screens/home_screen.dart';
+import 'package:instagramultra/features/profile/presentation/screens/profile_screen.dart';
 
 class BottomNavigation extends StatefulWidget {
   const BottomNavigation({super.key});
@@ -15,7 +16,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
     const Scaffold(),
     const Scaffold(),
     const Scaffold(),
-    const Scaffold(),
+    const ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {

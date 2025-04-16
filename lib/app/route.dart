@@ -4,6 +4,7 @@ import 'package:instagramultra/app/splash_screen.dart';
 import 'package:instagramultra/features/auth/presentation/screens/login_screen.dart';
 import 'package:instagramultra/features/auth/presentation/screens/register_screen.dart';
 import 'package:instagramultra/features/home/presentation/screens/home_screen.dart';
+import 'package:instagramultra/features/profile/presentation/screens/profile_screen.dart';
 
 final router = GoRouter(
   routes: [
@@ -30,6 +31,10 @@ final router = GoRouter(
     GoRoute(
         path: '/',
         builder: (context, state) => const HomeScreen()), // Главный экран
+    //Profile
+    GoRoute(
+        path: '/profile',
+        builder: (context, state) => const ProfileScreen()), //Экран профилья
   ],
   redirect: (context, state) async {
     if (state.matchedLocation == '/botomNavigation') return null;
