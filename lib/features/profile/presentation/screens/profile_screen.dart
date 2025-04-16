@@ -35,27 +35,47 @@ class ProfileScreen extends ConsumerWidget {
                 ),
               ),
             ),
-            SliverToBoxAdapter(
-              child: TabBar(
-                tabs: [
-                  Tab(child: Icon(Icons.local_post_office)),
-                  Tab(child: Icon(Icons.video_call))
-                ],
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height,
-                child: TabBarView(
-                    physics: NeverScrollableScrollPhysics(),
-                    children: [
-                      Container(color: Colors.amber),
-                      Container(color: Colors.amber),
-                    ]),
-              ),
-            )
+            const ProfileTabbar(),
+            const ProfileTabbarView()
           ],
         ),
+      ),
+    );
+  }
+}
+
+class ProfileTabbarView extends StatelessWidget {
+  const ProfileTabbarView({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverToBoxAdapter(
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        child: TabBarView(children: [
+          Container(color: Colors.amber),
+          Container(color: Colors.amber),
+        ]),
+      ),
+    );
+  }
+}
+
+class ProfileTabbar extends StatelessWidget {
+  const ProfileTabbar({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const SliverToBoxAdapter(
+      child: TabBar(
+        tabs: [
+          Tab(child: Icon(Icons.local_post_office)),
+          Tab(child: Icon(Icons.video_call))
+        ],
       ),
     );
   }
