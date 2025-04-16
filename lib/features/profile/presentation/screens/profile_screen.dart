@@ -1,28 +1,62 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:instagramultra/features/profile/presentation/widgets/instagram_app_bar.dart';
+import 'package:instagramultra/features/profile/presentation/widgets/profile_button.dart';
+import 'package:instagramultra/features/profile/presentation/widgets/profile_info_widget.dart';
 
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return CustomScrollView(
-      slivers: [
-        SliverAppBar(
-          leading: const Row(
-            children: [
-              Icon(Icons.lock),
-              Text('NickName'),
-              Icon(Icons.arrow_downward)
-            ],
-          ),
-          actions: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.abc)),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.abc)),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.abc)),
+    return DefaultTabController(
+      length: 2,
+      initialIndex: 1,
+      child: Scaffold(
+        body: CustomScrollView(
+          slivers: [
+            const InstagramAppBar(),
+            const ProfileInfoWidget(),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                child: Row(
+                  children: [
+                    const ProfileButton(),
+                    const Gap(10),
+                    const ProfileButton(),
+                    const Gap(10),
+                    IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.contact_emergency)),
+                  ],
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: TabBar(
+                tabs: [
+                  Tab(child: Icon(Icons.local_post_office)),
+                  Tab(child: Icon(Icons.video_call))
+                ],
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height,
+                child: TabBarView(
+                    physics: NeverScrollableScrollPhysics(),
+                    children: [
+                      Container(color: Colors.amber),
+                      Container(color: Colors.amber),
+                    ]),
+              ),
+            )
           ],
         ),
-      ],
+      ),
     );
   }
 }

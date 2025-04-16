@@ -58,7 +58,7 @@ class RegisterScreen extends HookConsumerWidget {
                       width: 60,
                       height: 60,
                       child: Image.asset(
-                        'images/Icon.png',
+                        'assets/images/Icon.png',
                         fit: BoxFit.fill,
                       ),
                     ),

@@ -37,7 +37,10 @@ final router = GoRouter(
         builder: (context, state) => const SplashScreen()), // Сплеш скрин
   ],
   redirect: (context, state) async {
-    if (state.matchedLocation == '/botomNavigation') return null;
+    if (state.matchedLocation == '/botomNavigation' ||
+        state.matchedLocation == '/login') {
+      return null;
+    }
     return '/splash';
   },
 );

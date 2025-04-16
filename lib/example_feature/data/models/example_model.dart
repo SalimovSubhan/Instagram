@@ -1,8 +1,7 @@
 import '../../business/entities/example_entity.dart';
 
 class ExampleModel extends ExampleEntity {
-  ExampleModel({required int id, required String title})
-      : super(id: id, title: title);
+  ExampleModel({required super.id, required super.title});
 
   factory ExampleModel.fromJson(Map<String, dynamic> json) {
     return ExampleModel(
