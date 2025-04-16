@@ -5,6 +5,7 @@ import 'package:instagramultra/features/home/business/entities/post_entities.dar
 import 'package:instagramultra/features/home/presentation/providers/get_post_provider.dart';
 import 'package:instagramultra/features/home/presentation/providers/scroll_controller_provider.dart';
 import 'package:instagramultra/features/home/presentation/widgets/home_comment_widget.dart';
+import 'package:instagramultra/features/home/presentation/widgets/video_player_widget.dart';
 
 class HomePostWidget extends HookConsumerWidget {
   const HomePostWidget({super.key});
@@ -44,10 +45,13 @@ class HomePostWidget extends HookConsumerWidget {
 
     useEffect(() {
       scrolController.addListener(scrolListener);
+      if (postState is AsyncData) {
+        posts.value.addAll(postState.value!.data.toSet());
+      }
       return () {
         scrolController.removeListener(scrolListener);
       };
-    }, [scrolController]);
+    }, [scrolController, postState]);
 
     return SliverToBoxAdapter(
       child: postState.when(
@@ -64,6 +68,7 @@ class HomePostWidget extends HookConsumerWidget {
                     ),
                   );
                 }
+
                 final PostEntities post = posts.value.toList()[index];
 
                 return Column(
@@ -85,7 +90,8 @@ class HomePostWidget extends HookConsumerWidget {
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
                                         image: NetworkImage(post.userImage !=
-                                                null
+                                                    null &&
+                                                post.userImage!.isNotEmpty
                                             ? 'https://instagram-api.softclub.tj/images/${post.userImage}'
                                             : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3r8NVoEX5mtT_ko24SieILHQ9wemn2y5h3Q&s'),
                                         fit: BoxFit.fill,
@@ -120,19 +126,29 @@ class HomePostWidget extends HookConsumerWidget {
                     GestureDetector(
                       onTap: () {},
                       child: Container(
+                        width: double.infinity,
+                        decoration: const BoxDecoration(
                           color: Colors.white38,
-                          width: double.infinity,
-                          child: const SizedBox(
-                            width: double.infinity,
-                            height: 350,
-                            child: Center(
-                              child: CircularProgressIndicator(),
-                            ),
-                          )),
+                        ),
+                        child: post.images?[0].split('.').last == 'png' ||
+                                post.images?[0].split('.').last == 'jpg'
+                            ? AspectRatio(
+                                aspectRatio: 1,
+                                child: Image.network(
+                                    'https://instagram-api.softclub.tj/images/${post.images?[0]}'),
+                              )
+                            : AspectRatio(
+                                aspectRatio: 1,
+                                child: VideoPlayerWidget(
+                                  url:
+                                      'https://instagram-api.softclub.tj/images/${post.images?.first}',
+                                ),
+                              ),
+                      ),
                     ),
                     Container(
                       width: double.infinity,
-                      height: 130,
+                      padding: const EdgeInsets.only(bottom: 10),
                       decoration: const BoxDecoration(color: Colors.white),
                       child: Column(
                         children: [

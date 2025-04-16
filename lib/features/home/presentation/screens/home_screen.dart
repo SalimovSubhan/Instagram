@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:instagramultra/features/auth/presentation/screens/login_screen.dart';
 import 'package:instagramultra/features/home/presentation/providers/get_post_provider.dart';
 import 'package:instagramultra/features/home/presentation/providers/scroll_controller_provider.dart';
 import 'package:instagramultra/features/home/presentation/widgets/home_appbar_widget.dart';
@@ -32,12 +31,6 @@ class HomeScreen extends HookConsumerWidget {
               child: GestureDetector(
                   onTap: () {
                     prefs.deleteToken();
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginScreen()),
-                      (route) => false,
-                    );
                     context.go('/login');
                   },
                   child: const Icon(Icons.close)),
