@@ -8,16 +8,6 @@ import 'package:instagramultra/features/profile/presentation/screens/profile_scr
 
 final router = GoRouter(
   routes: [
-    //app
-    GoRoute(
-        path: '/botomNavigation',
-        builder: (context, state) =>
-            const BottomNavigation()), //ботом навигатсия
-
-    GoRoute(
-        path: '/splash',
-        builder: (context, state) => const SplashScreen()), // сплеш скрин
-
     //auth
     GoRoute(
         path: '/login',
@@ -35,6 +25,16 @@ final router = GoRouter(
     GoRoute(
         path: '/profile',
         builder: (context, state) => const ProfileScreen()), //Экран профилья
+
+    //app
+    GoRoute(
+        path: '/botomNavigation',
+        builder: (context, state) =>
+            const BottomNavigation()), //Ботом навигатсия
+
+    GoRoute(
+        path: '/splash',
+        builder: (context, state) => const SplashScreen()), // Сплеш скрин
   ],
   redirect: (context, state) async {
     if (state.matchedLocation == '/botomNavigation') return null;

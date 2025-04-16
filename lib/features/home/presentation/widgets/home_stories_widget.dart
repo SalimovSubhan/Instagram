@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class HomeStoriesWidget extends StatefulWidget {
@@ -58,12 +59,12 @@ class _HomeStoriesWidgetState extends State<HomeStoriesWidget> {
                               ),
                             ),
                           ]),
-                          const SizedBox(
+                          SizedBox(
                             width: 100,
                             child: Text(
-                              'Ваша история',
+                              'your_story'.tr(),
                               maxLines: 1,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   overflow: TextOverflow.ellipsis,
                                   color: Color.fromARGB(255, 114, 112, 112),
                                   fontSize: 13),
