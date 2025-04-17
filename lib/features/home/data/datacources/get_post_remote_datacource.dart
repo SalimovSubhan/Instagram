@@ -5,8 +5,7 @@ import 'package:instagramultra/core/utils/log_service.dart';
 
 class GetPostRemoteDatacource {
   LogService log = LogService();
-  final DioService dio;
-  GetPostRemoteDatacource({required this.dio});
+  final DioService dio = DioService();
 
   Future<ResponsePostEntities> getPosts({int pageNumber = 1}) async {
     final url = Apiendoint.post(PostEndpoint.GET_POSTS, pageNumber: pageNumber);

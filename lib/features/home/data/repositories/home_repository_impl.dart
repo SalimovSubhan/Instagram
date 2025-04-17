@@ -3,8 +3,7 @@ import 'package:instagramultra/features/home/data/datacources/get_post_remote_da
 import '../../business/repositories/home_repository.dart';
 
 class HomeRepositoryImpl implements HomeRepository {
-  final GetPostRemoteDatacource remoteDatacource;
-  HomeRepositoryImpl({required this.remoteDatacource});
+  final GetPostRemoteDatacource remoteDatacource = GetPostRemoteDatacource();
 
   @override
   Future<ResponsePostEntities> getPosts({int pageNumber = 1}) {

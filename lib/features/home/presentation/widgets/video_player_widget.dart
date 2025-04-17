@@ -25,14 +25,14 @@ class VideoPlayerWidget extends HookConsumerWidget {
 
       void initializeVideo() async {
         try {
-          await videoPlayerController!.initialize();
+          await videoPlayerController.initialize();
           if (!context.mounted) return;
 
           chewieController.value = ChewieController(
-            videoPlayerController: videoPlayerController!,
+            videoPlayerController: videoPlayerController,
             autoPlay: false,
             looping: true,
-            showControls: true,
+            showControls: false,
             allowFullScreen: true,
             allowMuting: true,
             errorBuilder: (context, errorMessage) {
@@ -50,7 +50,7 @@ class VideoPlayerWidget extends HookConsumerWidget {
       initializeVideo();
 
       return () {
-        videoPlayerController?.dispose();
+        videoPlayerController.dispose();
         chewieController.value?.dispose();
       };
     }, [videoPlayerController]);
