@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:instagramultra/features/home/presentation/providers/get_post_provider.dart';
-import 'package:instagramultra/features/home/presentation/providers/scroll_controller_provider.dart';
+import 'package:instagramultra/features/home/presentation/providers/home_providers.dart';
 import 'package:instagramultra/features/home/presentation/widgets/home_appbar_widget.dart';
 import 'package:instagramultra/features/home/presentation/widgets/home_post_widget.dart';
 import 'package:instagramultra/features/home/presentation/widgets/home_stories_widget.dart';
@@ -14,16 +13,14 @@ class HomeScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     PrefsService prefs = PrefsService();
-    final scrolController = ref.watch(scrolControllerProvider);
+    final pagingController = ref.watch(pagingControllerProvider);
 
     return RefreshIndicator(
       onRefresh: () async {
-        final rrr = ref.refresh(getPostProvider(1));
-        print(rrr);
+        pagingController.refresh();
       },
       child: Scaffold(
         body: CustomScrollView(
-          controller: scrolController,
           slivers: [
             const HomeAppbarWidget(),
             const HomeStoriesWidget(),
@@ -35,7 +32,6 @@ class HomeScreen extends HookConsumerWidget {
                   },
                   child: const Icon(Icons.close)),
             ),
-            const HomePostWidget(),
           ],
         ),
       ),

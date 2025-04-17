@@ -27,14 +27,25 @@ class DioService {
         'Accept': 'application/json',
         if (istoken && token != null) 'Authorization': 'Bearer $token',
       };
+      log.info('🔗 GET $url');
+      log.info('🧾 Headers: $headers');
+
       final response = await dio.get(
         url,
         options: Options(headers: headers),
       );
       return response;
     } on DioException catch (e) {
-      log.error('$e');
-      return e.response!;
+      log.error('❌ Dio error: $e');
+      if (e.response != null) {
+        return e.response!;
+      } else {
+        return Response(
+          requestOptions: RequestOptions(path: url),
+          statusCode: 500,
+          statusMessage: 'Connection error: ${e.message}',
+        );
+      }
     }
   }
 
@@ -49,6 +60,9 @@ class DioService {
         'Accept': 'application/json',
         if (istoken && token != null) 'Authorization': 'Bearer $token',
       };
+      log.info('🔗 Post $url');
+      log.info('🧾 Headers: $headers');
+
       final response = await dio.post(
         url,
         data: body,
@@ -56,8 +70,16 @@ class DioService {
       );
       return response;
     } on DioException catch (e) {
-      log.error('$e');
-      return e.response!;
+      log.error('❌ Dio error: $e');
+      if (e.response != null) {
+        return e.response!;
+      } else {
+        return Response(
+          requestOptions: RequestOptions(path: url),
+          statusCode: 500,
+          statusMessage: 'Connection error: ${e.message}',
+        );
+      }
     }
   }
 
@@ -70,14 +92,25 @@ class DioService {
         'Accept': 'application/json',
         if (istoken && token != null) 'Authorization': 'Bearer $token',
       };
+      log.info('🔗 Delete $url');
+      log.info('🧾 Headers: $headers');
+
       final response = await dio.delete(
         url,
         options: Options(headers: headers),
       );
       return response;
     } on DioException catch (e) {
-      log.error('$e');
-      return e.response!;
+      log.error('❌ Dio error: $e');
+      if (e.response != null) {
+        return e.response!;
+      } else {
+        return Response(
+          requestOptions: RequestOptions(path: url),
+          statusCode: 500,
+          statusMessage: 'Connection error: ${e.message}',
+        );
+      }
     }
   }
 
@@ -92,6 +125,9 @@ class DioService {
         'Accept': 'application/json',
         if (istoken && token != null) 'Authorization': 'Bearer $token',
       };
+      log.info('🔗 Put $url');
+      log.info('🧾 Headers: $headers');
+
       final response = await dio.put(
         url,
         data: body,
@@ -99,8 +135,16 @@ class DioService {
       );
       return response;
     } on DioException catch (e) {
-      log.error('$e');
-      return e.response!;
+      log.error('❌ Dio error: $e');
+      if (e.response != null) {
+        return e.response!;
+      } else {
+        return Response(
+          requestOptions: RequestOptions(path: url),
+          statusCode: 500,
+          statusMessage: 'Connection error: ${e.message}',
+        );
+      }
     }
   }
 }
