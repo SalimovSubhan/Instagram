@@ -2,19 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:instagramultra/features/home/business/entities/post_entities.dart';
-import 'package:instagramultra/features/home/presentation/providers/home_providers.dart';
 import 'package:instagramultra/features/home/presentation/widgets/home_comment_widget.dart';
 import 'package:instagramultra/features/home/presentation/widgets/video_player_widget.dart';
 
 class HomePostWidget extends HookConsumerWidget {
-  const HomePostWidget({super.key});
+  final PagingController<int, PostEntities> pagingController;
+  const HomePostWidget({super.key, required this.pagingController});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final controller = ref.watch(pagingControllerProvider);
-
     return PagedSliverList<int, PostEntities>(
-        pagingController: controller,
+        pagingController: pagingController,
         builderDelegate: PagedChildBuilderDelegate(
           itemBuilder: (context, item, index) {
             return Column(
@@ -195,12 +193,6 @@ class HomePostWidget extends HookConsumerWidget {
               ],
             );
           },
-          newPageErrorIndicatorBuilder: (context) => const Center(
-            child: Text('Чтото вообше пошло нетак'),
-          ),
-          firstPageErrorIndicatorBuilder: (context) => const Center(
-            child: Text('Чтото пошло нитак'),
-          ),
           newPageProgressIndicatorBuilder: (context) => const Center(
             child: CircularProgressIndicator.adaptive(),
           ),

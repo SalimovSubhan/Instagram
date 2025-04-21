@@ -1,33 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:instagramultra/features/home/presentation/providers/home_providers.dart';
 import 'package:instagramultra/features/home/presentation/screens/home_screen.dart';
 
-class BottomNavigation extends StatefulWidget {
+class BottomNavigation extends HookConsumerWidget {
   const BottomNavigation({super.key});
 
   @override
-  State<BottomNavigation> createState() => _BottomNavigationState();
-}
-
-class _BottomNavigationState extends State<BottomNavigation> {
-  int index = 0;
-  final List<Widget> screens = [
-    const HomeScreen(),
-    const Scaffold(),
-    const Scaffold(),
-    const Scaffold(),
-    const Scaffold(),
-  ];
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final scrolController = ref.watch(scrolControllerProvider);
+    final index = useState<int>(0);
+    final List<Widget> screens = [
+      const HomeScreen(),
+      const Scaffold(),
+      const Scaffold(),
+      const Scaffold(),
+      const Scaffold(),
+    ];
     return Scaffold(
-      body: screens[index],
+      body: screens[index.value],
       bottomNavigationBar: BottomNavigationBar(
           onTap: (value) {
-            setState(() {
-              index = value;
-            });
+            if (value == index.value) {
+              if (value == 0) {
+                scrolController.animateTo(0,
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeInOut);
+              }
+            } else {
+              index.value = value;
+            }
           },
-          currentIndex: index,
+          currentIndex: index.value,
           selectedItemColor: Colors.black,
           unselectedItemColor: Colors.grey,
           items: const [
