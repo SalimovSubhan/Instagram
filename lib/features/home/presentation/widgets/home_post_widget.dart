@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
@@ -32,19 +33,20 @@ class HomePostWidget extends HookConsumerWidget {
                                 width: 30,
                                 height: 30,
                                 decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: NetworkImage(item.userImage !=
-                                                null &&
-                                            item.userImage!.isNotEmpty
-                                        ? 'https://instagram-api.softclub.tj/images/${item.userImage}'
-                                        : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3r8NVoEX5mtT_ko24SieILHQ9wemn2y5h3Q&s'),
-                                    fit: BoxFit.fill,
-                                  ),
                                   border:
                                       Border.all(width: 2, color: Colors.pink),
                                   color:
                                       const Color.fromARGB(255, 241, 238, 238),
                                   shape: BoxShape.circle,
+                                ),
+                                child: ClipOval(
+                                  child: CachedNetworkImage(
+                                    imageUrl: item.userImage != null &&
+                                            item.userImage!.isNotEmpty
+                                        ? 'https://instagram-api.softclub.tj/images/${item.userImage}'
+                                        : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3r8NVoEX5mtT_ko24SieILHQ9wemn2y5h3Q&s',
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                             ),
@@ -77,8 +79,9 @@ class HomePostWidget extends HookConsumerWidget {
                             item.images?[0].split('.').last == 'jpg'
                         ? AspectRatio(
                             aspectRatio: 1,
-                            child: Image.network(
-                                'https://instagram-api.softclub.tj/images/${item.images?[0]}'),
+                            child: CachedNetworkImage(
+                                imageUrl:
+                                    'https://instagram-api.softclub.tj/images/${item.images?[0]}'),
                           )
                         : AspectRatio(
                             aspectRatio: 1,

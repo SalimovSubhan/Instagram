@@ -8,5 +8,8 @@ final pageProvider = StateProvider<int>((ref) => 1);
 final lastPageProvider = StateProvider<int>((ref) => 0);
 final isLoadingProvider = StateProvider<bool>((ref) => false);
 final scrolControllerProvider = Provider((ref) => ScrollController());
-final pagingControllerProvider = Provider.autoDispose(
-    (ref) => PagingController<int, PostEntities>(firstPageKey: 1));
+final pagingControllerProvider = Provider((ref) {
+  final controller = PagingController<int, PostEntities>(firstPageKey: 1);
+  ref.onDispose(() => controller.dispose());
+  return controller;
+});
