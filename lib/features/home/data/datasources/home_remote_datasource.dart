@@ -19,4 +19,18 @@ class GetPostRemoteDatacource {
     }
     return ResponsePostEntities.fromJson(response.data);
   }
+
+  Future addComment({required String comment, required int postId}) async {
+    final url = Apiendoint.post(PostEndpoint.ADD_COMMENT);
+    final body = {
+      'comment': comment,
+      'postId': postId,
+    };
+    final response = await dio.post(url: url, body: body);
+    if (response.statusCode == 200) {
+      log.info('${response.statusCode} add comment');
+    } else {
+      log.error('${response.statusCode} add comment : $response');
+    }
+  }
 }

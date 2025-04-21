@@ -134,7 +134,10 @@ class HomeCommentWidget extends HookConsumerWidget {
                 ),
               ),
               const Spacer(),
-              const Icon(Icons.send, size: 30),
+              GestureDetector(
+                onTap: () {},
+                child: const Icon(Icons.send, size: 30),
+              ),
             ],
           ),
         ),
