@@ -1,9 +1,9 @@
 import 'package:instagramultra/features/home/business/entities/response_post_entities.dart';
-import 'package:instagramultra/features/home/data/datasources/get_post_remote_datasource.dart';
+import 'package:instagramultra/features/home/data/datasources/home_remote_datasource.dart';
 import '../../business/repositories/home_repository.dart';
 
 class HomeRepositoryImpl implements HomeRepository {
-  final GetPostRemoteDatacource getPostRemoteDatacource;
+  final HomeRemoteDatacource getPostRemoteDatacource;
   HomeRepositoryImpl(this.getPostRemoteDatacource);
 
   @override

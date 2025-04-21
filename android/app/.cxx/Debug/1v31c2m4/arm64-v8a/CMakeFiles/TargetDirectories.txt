@@ -1,0 +1,2 @@
+C:/Users/Abdukarim/Desktop/projects/Instagram-1/android/app/.cxx/Debug/1v31c2m4/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/Abdukarim/Desktop/projects/Instagram-1/android/app/.cxx/Debug/1v31c2m4/arm64-v8a/CMakeFiles/rebuild_cache.dir

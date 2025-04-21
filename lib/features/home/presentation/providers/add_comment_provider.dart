@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instagramultra/features/home/business/use_cases/add_comment_usecase.dart';
-import 'package:instagramultra/features/home/data/datasources/get_post_remote_datasource.dart';
+import 'package:instagramultra/features/home/data/datasources/home_remote_datasource.dart';
 import 'package:instagramultra/features/home/data/repositories/home_repository_impl.dart';
 
 final getPostRemoteDatacourceProvider =
-    Provider((ref) => GetPostRemoteDatacource());
+    Provider((ref) => HomeRemoteDatacource());
 
 final repositoryImplProvider = Provider(
     (ref) => HomeRepositoryImpl(ref.read(getPostRemoteDatacourceProvider)));

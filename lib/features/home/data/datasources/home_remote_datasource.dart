@@ -3,7 +3,7 @@ import 'package:instagramultra/core/network/dio_service.dart';
 import 'package:instagramultra/features/home/business/entities/response_post_entities.dart';
 import 'package:instagramultra/core/utils/log_service.dart';
 
-class GetPostRemoteDatacource {
+class HomeRemoteDatacource {
   LogService log = LogService();
   final DioService dio = DioService();
 
