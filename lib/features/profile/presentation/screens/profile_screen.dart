@@ -16,6 +16,7 @@ class ProfileScreen extends HookConsumerWidget {
     final proifleInfo = ref.watch(getProfileInfoProvider);
     useEffect(() {
       ref.read(getProfileInfoProvider);
+      return null;
     }, []);
     return DefaultTabController(
       length: 2,
