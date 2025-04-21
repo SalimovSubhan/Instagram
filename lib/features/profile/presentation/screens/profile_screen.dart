@@ -6,12 +6,14 @@ import 'package:instagramultra/features/profile/presentation/providers/profile_p
 import 'package:instagramultra/features/profile/presentation/widgets/instagram_app_bar.dart';
 import 'package:instagramultra/features/profile/presentation/widgets/profile_button.dart';
 import 'package:instagramultra/features/profile/presentation/widgets/profile_info_widget.dart';
+import 'package:shimmer/shimmer.dart';
 
 class ProfileScreen extends HookConsumerWidget {
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final proifleInfo = ref.watch(getProfileInfoProvider);
     useEffect(() {
       ref.read(getProfileInfoProvider);
     }, []);
@@ -19,32 +21,50 @@ class ProfileScreen extends HookConsumerWidget {
       length: 2,
       initialIndex: 1,
       child: Scaffold(
-        body: CustomScrollView(
-          slivers: [
-            const InstagramAppBar(),
-            const ProfileInfoWidget(),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                child: Row(
-                  children: [
-                    const ProfileButton(),
-                    const Gap(10),
-                    const ProfileButton(),
-                    const Gap(10),
-                    IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.contact_emergency)),
-                  ],
-                ),
-              ),
-            ),
-            const ProfileTabbar(),
-            const ProfileTabbarView()
-          ],
+          body: proifleInfo.when(
+        data: (data) {
+          return const ProifleScrollView();
+        },
+        error: (error, stackTrace) => const Center(
+          child: Text('WHat the father???'),
         ),
-      ),
+        loading: () => Shimmer.fromColors(
+            child: const ProifleScrollView(),
+            baseColor: Colors.grey,
+            highlightColor: Colors.black),
+      )),
+    );
+  }
+}
+
+class ProifleScrollView extends ConsumerWidget {
+  const ProifleScrollView({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return CustomScrollView(
+      slivers: [
+        const InstagramAppBar(),
+        const ProfileInfoWidget(),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            child: Row(
+              children: [
+                const ProfileButton(),
+                const Gap(10),
+                const ProfileButton(),
+                const Gap(10),
+                IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.contact_emergency)),
+              ],
+            ),
+          ),
+        ),
+        const ProfileTabbar(),
+        const ProfileTabbarView()
+      ],
     );
   }
 }
