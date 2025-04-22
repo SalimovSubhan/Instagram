@@ -22,24 +22,25 @@ class ProfileScreen extends HookConsumerWidget {
         onRefresh: () async =>
             ref.read(getProfileInfoProvider.notifier).fetchProfileInfo(),
         child: Scaffold(
+            backgroundColor: Colors.white,
             body: profileInfo.when(
-          data: (data) {
-            return ProfileScrollView(
-              profileInfo: data,
-            );
-          },
-          error: (error, stackTrace) => const Center(
-            child: Text('WHat the father???'),
-          ),
-          loading: () => Shimmer.fromColors(
-              baseColor: Colors.grey,
-              highlightColor: Colors.black,
-              child: Container(
-                width: 100,
-                height: 100,
-                color: Colors.amber,
-              )),
-        )),
+              data: (data) {
+                return ProfileScrollView(
+                  profileInfo: data,
+                );
+              },
+              error: (error, stackTrace) => const Center(
+                child: Text('WHat the father???'),
+              ),
+              loading: () => Shimmer.fromColors(
+                  baseColor: Colors.grey,
+                  highlightColor: Colors.black,
+                  child: Container(
+                    width: 100,
+                    height: 100,
+                    color: Colors.amber,
+                  )),
+            )),
       ),
     );
   }
