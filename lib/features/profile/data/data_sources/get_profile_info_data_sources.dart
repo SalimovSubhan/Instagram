@@ -2,6 +2,8 @@ import 'package:instagramultra/core/network/api_end_pont.dart';
 import 'package:instagramultra/core/network/dio_service.dart';
 import 'package:instagramultra/core/utils/log_service.dart';
 import 'package:instagramultra/features/profile/business/entities/profile_info_entity.dart';
+import 'package:instagramultra/features/profile/data/model/mapper/profile_info_mapper.dart';
+import 'package:instagramultra/features/profile/data/model/profile_info_dto.dart';
 
 class GetProfileInfoDataSources {
   LogService log = LogService();
@@ -16,6 +18,6 @@ class GetProfileInfoDataSources {
     } else {
       log.error('${response.statusCode}:Get Profile info ${response.data}');
     }
-    return ProfileInfoEntity.fromJson(response.data);
+    return ProfileInfoDTO.fromJson(response.data['data']).toEntity();
   }
 }

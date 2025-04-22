@@ -13,10 +13,14 @@ class ProfileInfoWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          const Column(
+          Column(
             children: [
-              CircleAvatar(radius: 40),
-              Text('BIO'),
+              CircleAvatar(
+                radius: 40,
+                backgroundImage: NetworkImage(
+                    'https://instagram-api.softclub.tj/images/${profileInfo.image}'),
+              ),
+              Text('${profileInfo.about}'),
             ],
           ),
           Row(
@@ -27,12 +31,12 @@ class ProfileInfoWidget extends StatelessWidget {
               ]),
               const Gap(40),
               Column(children: [
-                Text(profileInfo.followerCount.toString()),
+                Text(profileInfo.subscribersCount.toString()),
                 const Text('Posts')
               ]),
               const Gap(40),
               Column(children: [
-                Text(profileInfo.followingCount.toString()),
+                Text(profileInfo.subscriptionsCount.toString()),
                 const Text('Posts')
               ])
             ],
