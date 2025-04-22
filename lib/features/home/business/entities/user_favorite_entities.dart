@@ -1,17 +1,13 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+class UserFavoriteEntities {
+  final String? userId;
+  final String? userName;
+  final String? userPhoto;
+  final String? fullname;
 
-part 'user_favorite_entities.g.dart';
-part 'user_favorite_entities.freezed.dart';
-
-@freezed
-class UserFavoriteEntities with _$UserFavoriteEntities {
-  const factory UserFavoriteEntities({
-    String? userId,
-    String? userName,
-    String? userPhoto,
-    String? fullname,
-  }) = _UserFavoriteEntities;
-
-  factory UserFavoriteEntities.fromJson(Map<String, dynamic> json) =>
-      _$UserFavoriteEntitiesFromJson(json);
+  UserFavoriteEntities({
+    required this.fullname,
+    required this.userId,
+    required this.userName,
+    required this.userPhoto,
+  });
 }

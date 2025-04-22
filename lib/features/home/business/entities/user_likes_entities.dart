@@ -1,17 +1,13 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+class UserLikesEntities {
+  final String? userId;
+  final String? userName;
+  final String? userPhoto;
+  final String? fullname;
 
-part 'user_likes_entities.g.dart';
-part 'user_likes_entities.freezed.dart';
-
-@freezed
-class UserLikesEntities with _$UserLikesEntities {
-  const factory UserLikesEntities({
-    String? userId,
-    String? userName,
-    String? userPhoto,
-    String? fullname,
-  }) = _UserLikesEntities;
-
-  factory UserLikesEntities.fromJson(Map<String, dynamic> json) =>
-      _$UserLikesEntitiesFromJson(json);
+  UserLikesEntities({
+    required this.fullname,
+    required this.userId,
+    required this.userName,
+    required this.userPhoto,
+  });
 }

@@ -7,7 +7,7 @@ class HomeRepositoryImpl implements HomeRepository {
   HomeRepositoryImpl(this.getPostRemoteDatacource);
 
   @override
-  Future<ResponsePostEntities> getPosts({int pageNumber = 1}) {
+  Future<ResponsePostEntities> getPosts({int pageNumber = 1}) async {
     return getPostRemoteDatacource.getPosts(pageNumber: pageNumber);
   }
 

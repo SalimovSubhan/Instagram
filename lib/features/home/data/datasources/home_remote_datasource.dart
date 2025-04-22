@@ -1,7 +1,9 @@
 import 'package:instagramultra/core/network/api_end_pont.dart';
 import 'package:instagramultra/core/network/dio_service.dart';
-import 'package:instagramultra/features/home/business/entities/response_post_entities.dart';
 import 'package:instagramultra/core/utils/log_service.dart';
+import 'package:instagramultra/features/home/business/entities/response_post_entities.dart';
+import 'package:instagramultra/features/home/data/models/mapper/response_post_mapper.dart';
+import 'package:instagramultra/features/home/data/models/response_post_dto.dart';
 
 class HomeRemoteDatacource {
   LogService log = LogService();
@@ -17,7 +19,8 @@ class HomeRemoteDatacource {
     } else {
       log.error('${response.statusCode}:Get post   ${response.data}');
     }
-    return ResponsePostEntities.fromJson(response.data);
+    final result = ResponsePostDto.fromJson(response.data);
+    return result.toEntity();
   }
 
   Future addComment({required String comment, required int postId}) async {

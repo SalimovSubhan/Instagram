@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'post_entities.dart';
+part of 'post_dto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,15 +14,15 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-PostEntities _$PostEntitiesFromJson(Map<String, dynamic> json) {
-  return _PostEntities.fromJson(json);
+PostDto _$PostDtoFromJson(Map<String, dynamic> json) {
+  return _PostDto.fromJson(json);
 }
 
 /// @nodoc
-mixin _$PostEntities {
+mixin _$PostDto {
   String? get title => throw _privateConstructorUsedError;
   int get commentCount => throw _privateConstructorUsedError;
-  List<CommentEntities>? get comments => throw _privateConstructorUsedError;
+  List<CommentDto>? get comments => throw _privateConstructorUsedError;
   String? get content => throw _privateConstructorUsedError;
   String get datePublished => throw _privateConstructorUsedError;
   List<String>? get images => throw _privateConstructorUsedError;
@@ -31,34 +31,31 @@ mixin _$PostEntities {
   bool get postLike => throw _privateConstructorUsedError;
   int? get postLikeCount => throw _privateConstructorUsedError;
   int get postView => throw _privateConstructorUsedError;
-  List<UserFavoriteEntities>? get userFavorite =>
-      throw _privateConstructorUsedError;
+  List<UserFavoriteDto>? get userFavorite => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
   String? get userImage => throw _privateConstructorUsedError;
-  List<UserLikesEntities>? get userLikes => throw _privateConstructorUsedError;
+  List<UserLikesDto>? get userLikes => throw _privateConstructorUsedError;
   String? get userName => throw _privateConstructorUsedError;
-  List<dynamic>? get userViews => throw _privateConstructorUsedError;
+  List<String>? get userViews => throw _privateConstructorUsedError;
 
-  /// Serializes this PostEntities to a JSON map.
+  /// Serializes this PostDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of PostEntities
+  /// Create a copy of PostDto
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $PostEntitiesCopyWith<PostEntities> get copyWith =>
-      throw _privateConstructorUsedError;
+  $PostDtoCopyWith<PostDto> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PostEntitiesCopyWith<$Res> {
-  factory $PostEntitiesCopyWith(
-          PostEntities value, $Res Function(PostEntities) then) =
-      _$PostEntitiesCopyWithImpl<$Res, PostEntities>;
+abstract class $PostDtoCopyWith<$Res> {
+  factory $PostDtoCopyWith(PostDto value, $Res Function(PostDto) then) =
+      _$PostDtoCopyWithImpl<$Res, PostDto>;
   @useResult
   $Res call(
       {String? title,
       int commentCount,
-      List<CommentEntities>? comments,
+      List<CommentDto>? comments,
       String? content,
       String datePublished,
       List<String>? images,
@@ -67,25 +64,25 @@ abstract class $PostEntitiesCopyWith<$Res> {
       bool postLike,
       int? postLikeCount,
       int postView,
-      List<UserFavoriteEntities>? userFavorite,
+      List<UserFavoriteDto>? userFavorite,
       String userId,
       String? userImage,
-      List<UserLikesEntities>? userLikes,
+      List<UserLikesDto>? userLikes,
       String? userName,
-      List<dynamic>? userViews});
+      List<String>? userViews});
 }
 
 /// @nodoc
-class _$PostEntitiesCopyWithImpl<$Res, $Val extends PostEntities>
-    implements $PostEntitiesCopyWith<$Res> {
-  _$PostEntitiesCopyWithImpl(this._value, this._then);
+class _$PostDtoCopyWithImpl<$Res, $Val extends PostDto>
+    implements $PostDtoCopyWith<$Res> {
+  _$PostDtoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of PostEntities
+  /// Create a copy of PostDto
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -120,7 +117,7 @@ class _$PostEntitiesCopyWithImpl<$Res, $Val extends PostEntities>
       comments: freezed == comments
           ? _value.comments
           : comments // ignore: cast_nullable_to_non_nullable
-              as List<CommentEntities>?,
+              as List<CommentDto>?,
       content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
@@ -156,7 +153,7 @@ class _$PostEntitiesCopyWithImpl<$Res, $Val extends PostEntities>
       userFavorite: freezed == userFavorite
           ? _value.userFavorite
           : userFavorite // ignore: cast_nullable_to_non_nullable
-              as List<UserFavoriteEntities>?,
+              as List<UserFavoriteDto>?,
       userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
@@ -168,7 +165,7 @@ class _$PostEntitiesCopyWithImpl<$Res, $Val extends PostEntities>
       userLikes: freezed == userLikes
           ? _value.userLikes
           : userLikes // ignore: cast_nullable_to_non_nullable
-              as List<UserLikesEntities>?,
+              as List<UserLikesDto>?,
       userName: freezed == userName
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
@@ -176,23 +173,22 @@ class _$PostEntitiesCopyWithImpl<$Res, $Val extends PostEntities>
       userViews: freezed == userViews
           ? _value.userViews
           : userViews // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
+              as List<String>?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$PostEntitiesImplCopyWith<$Res>
-    implements $PostEntitiesCopyWith<$Res> {
-  factory _$$PostEntitiesImplCopyWith(
-          _$PostEntitiesImpl value, $Res Function(_$PostEntitiesImpl) then) =
-      __$$PostEntitiesImplCopyWithImpl<$Res>;
+abstract class _$$PostDtoImplCopyWith<$Res> implements $PostDtoCopyWith<$Res> {
+  factory _$$PostDtoImplCopyWith(
+          _$PostDtoImpl value, $Res Function(_$PostDtoImpl) then) =
+      __$$PostDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {String? title,
       int commentCount,
-      List<CommentEntities>? comments,
+      List<CommentDto>? comments,
       String? content,
       String datePublished,
       List<String>? images,
@@ -201,23 +197,23 @@ abstract class _$$PostEntitiesImplCopyWith<$Res>
       bool postLike,
       int? postLikeCount,
       int postView,
-      List<UserFavoriteEntities>? userFavorite,
+      List<UserFavoriteDto>? userFavorite,
       String userId,
       String? userImage,
-      List<UserLikesEntities>? userLikes,
+      List<UserLikesDto>? userLikes,
       String? userName,
-      List<dynamic>? userViews});
+      List<String>? userViews});
 }
 
 /// @nodoc
-class __$$PostEntitiesImplCopyWithImpl<$Res>
-    extends _$PostEntitiesCopyWithImpl<$Res, _$PostEntitiesImpl>
-    implements _$$PostEntitiesImplCopyWith<$Res> {
-  __$$PostEntitiesImplCopyWithImpl(
-      _$PostEntitiesImpl _value, $Res Function(_$PostEntitiesImpl) _then)
+class __$$PostDtoImplCopyWithImpl<$Res>
+    extends _$PostDtoCopyWithImpl<$Res, _$PostDtoImpl>
+    implements _$$PostDtoImplCopyWith<$Res> {
+  __$$PostDtoImplCopyWithImpl(
+      _$PostDtoImpl _value, $Res Function(_$PostDtoImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of PostEntities
+  /// Create a copy of PostDto
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -240,7 +236,7 @@ class __$$PostEntitiesImplCopyWithImpl<$Res>
     Object? userName = freezed,
     Object? userViews = freezed,
   }) {
-    return _then(_$PostEntitiesImpl(
+    return _then(_$PostDtoImpl(
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -252,7 +248,7 @@ class __$$PostEntitiesImplCopyWithImpl<$Res>
       comments: freezed == comments
           ? _value._comments
           : comments // ignore: cast_nullable_to_non_nullable
-              as List<CommentEntities>?,
+              as List<CommentDto>?,
       content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
@@ -288,7 +284,7 @@ class __$$PostEntitiesImplCopyWithImpl<$Res>
       userFavorite: freezed == userFavorite
           ? _value._userFavorite
           : userFavorite // ignore: cast_nullable_to_non_nullable
-              as List<UserFavoriteEntities>?,
+              as List<UserFavoriteDto>?,
       userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
@@ -300,7 +296,7 @@ class __$$PostEntitiesImplCopyWithImpl<$Res>
       userLikes: freezed == userLikes
           ? _value._userLikes
           : userLikes // ignore: cast_nullable_to_non_nullable
-              as List<UserLikesEntities>?,
+              as List<UserLikesDto>?,
       userName: freezed == userName
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
@@ -308,18 +304,18 @@ class __$$PostEntitiesImplCopyWithImpl<$Res>
       userViews: freezed == userViews
           ? _value._userViews
           : userViews // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
+              as List<String>?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$PostEntitiesImpl implements _PostEntities {
-  const _$PostEntitiesImpl(
+class _$PostDtoImpl implements _PostDto {
+  const _$PostDtoImpl(
       {this.title,
       required this.commentCount,
-      final List<CommentEntities>? comments,
+      final List<CommentDto>? comments,
       this.content,
       required this.datePublished,
       final List<String>? images,
@@ -328,28 +324,28 @@ class _$PostEntitiesImpl implements _PostEntities {
       required this.postLike,
       this.postLikeCount,
       required this.postView,
-      final List<UserFavoriteEntities>? userFavorite,
+      final List<UserFavoriteDto>? userFavorite,
       required this.userId,
       this.userImage,
-      final List<UserLikesEntities>? userLikes,
+      final List<UserLikesDto>? userLikes,
       this.userName,
-      final List<dynamic>? userViews})
+      final List<String>? userViews})
       : _comments = comments,
         _images = images,
         _userFavorite = userFavorite,
         _userLikes = userLikes,
         _userViews = userViews;
 
-  factory _$PostEntitiesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PostEntitiesImplFromJson(json);
+  factory _$PostDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostDtoImplFromJson(json);
 
   @override
   final String? title;
   @override
   final int commentCount;
-  final List<CommentEntities>? _comments;
+  final List<CommentDto>? _comments;
   @override
-  List<CommentEntities>? get comments {
+  List<CommentDto>? get comments {
     final value = _comments;
     if (value == null) return null;
     if (_comments is EqualUnmodifiableListView) return _comments;
@@ -381,9 +377,9 @@ class _$PostEntitiesImpl implements _PostEntities {
   final int? postLikeCount;
   @override
   final int postView;
-  final List<UserFavoriteEntities>? _userFavorite;
+  final List<UserFavoriteDto>? _userFavorite;
   @override
-  List<UserFavoriteEntities>? get userFavorite {
+  List<UserFavoriteDto>? get userFavorite {
     final value = _userFavorite;
     if (value == null) return null;
     if (_userFavorite is EqualUnmodifiableListView) return _userFavorite;
@@ -395,9 +391,9 @@ class _$PostEntitiesImpl implements _PostEntities {
   final String userId;
   @override
   final String? userImage;
-  final List<UserLikesEntities>? _userLikes;
+  final List<UserLikesDto>? _userLikes;
   @override
-  List<UserLikesEntities>? get userLikes {
+  List<UserLikesDto>? get userLikes {
     final value = _userLikes;
     if (value == null) return null;
     if (_userLikes is EqualUnmodifiableListView) return _userLikes;
@@ -407,9 +403,9 @@ class _$PostEntitiesImpl implements _PostEntities {
 
   @override
   final String? userName;
-  final List<dynamic>? _userViews;
+  final List<String>? _userViews;
   @override
-  List<dynamic>? get userViews {
+  List<String>? get userViews {
     final value = _userViews;
     if (value == null) return null;
     if (_userViews is EqualUnmodifiableListView) return _userViews;
@@ -419,14 +415,14 @@ class _$PostEntitiesImpl implements _PostEntities {
 
   @override
   String toString() {
-    return 'PostEntities(title: $title, commentCount: $commentCount, comments: $comments, content: $content, datePublished: $datePublished, images: $images, postFavorite: $postFavorite, postId: $postId, postLike: $postLike, postLikeCount: $postLikeCount, postView: $postView, userFavorite: $userFavorite, userId: $userId, userImage: $userImage, userLikes: $userLikes, userName: $userName, userViews: $userViews)';
+    return 'PostDto(title: $title, commentCount: $commentCount, comments: $comments, content: $content, datePublished: $datePublished, images: $images, postFavorite: $postFavorite, postId: $postId, postLike: $postLike, postLikeCount: $postLikeCount, postView: $postView, userFavorite: $userFavorite, userId: $userId, userImage: $userImage, userLikes: $userLikes, userName: $userName, userViews: $userViews)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PostEntitiesImpl &&
+            other is _$PostDtoImpl &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.commentCount, commentCount) ||
                 other.commentCount == commentCount) &&
@@ -479,27 +475,27 @@ class _$PostEntitiesImpl implements _PostEntities {
       userName,
       const DeepCollectionEquality().hash(_userViews));
 
-  /// Create a copy of PostEntities
+  /// Create a copy of PostDto
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$PostEntitiesImplCopyWith<_$PostEntitiesImpl> get copyWith =>
-      __$$PostEntitiesImplCopyWithImpl<_$PostEntitiesImpl>(this, _$identity);
+  _$$PostDtoImplCopyWith<_$PostDtoImpl> get copyWith =>
+      __$$PostDtoImplCopyWithImpl<_$PostDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PostEntitiesImplToJson(
+    return _$$PostDtoImplToJson(
       this,
     );
   }
 }
 
-abstract class _PostEntities implements PostEntities {
-  const factory _PostEntities(
+abstract class _PostDto implements PostDto {
+  const factory _PostDto(
       {final String? title,
       required final int commentCount,
-      final List<CommentEntities>? comments,
+      final List<CommentDto>? comments,
       final String? content,
       required final String datePublished,
       final List<String>? images,
@@ -508,22 +504,21 @@ abstract class _PostEntities implements PostEntities {
       required final bool postLike,
       final int? postLikeCount,
       required final int postView,
-      final List<UserFavoriteEntities>? userFavorite,
+      final List<UserFavoriteDto>? userFavorite,
       required final String userId,
       final String? userImage,
-      final List<UserLikesEntities>? userLikes,
+      final List<UserLikesDto>? userLikes,
       final String? userName,
-      final List<dynamic>? userViews}) = _$PostEntitiesImpl;
+      final List<String>? userViews}) = _$PostDtoImpl;
 
-  factory _PostEntities.fromJson(Map<String, dynamic> json) =
-      _$PostEntitiesImpl.fromJson;
+  factory _PostDto.fromJson(Map<String, dynamic> json) = _$PostDtoImpl.fromJson;
 
   @override
   String? get title;
   @override
   int get commentCount;
   @override
-  List<CommentEntities>? get comments;
+  List<CommentDto>? get comments;
   @override
   String? get content;
   @override
@@ -541,22 +536,22 @@ abstract class _PostEntities implements PostEntities {
   @override
   int get postView;
   @override
-  List<UserFavoriteEntities>? get userFavorite;
+  List<UserFavoriteDto>? get userFavorite;
   @override
   String get userId;
   @override
   String? get userImage;
   @override
-  List<UserLikesEntities>? get userLikes;
+  List<UserLikesDto>? get userLikes;
   @override
   String? get userName;
   @override
-  List<dynamic>? get userViews;
+  List<String>? get userViews;
 
-  /// Create a copy of PostEntities
+  /// Create a copy of PostDto
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PostEntitiesImplCopyWith<_$PostEntitiesImpl> get copyWith =>
+  _$$PostDtoImplCopyWith<_$PostDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

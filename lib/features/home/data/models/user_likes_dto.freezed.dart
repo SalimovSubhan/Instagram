@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'user_likes_entities.dart';
+part of 'user_likes_dto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,48 +14,48 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-UserLikesEntities _$UserLikesEntitiesFromJson(Map<String, dynamic> json) {
-  return _UserLikesEntities.fromJson(json);
+UserLikesDto _$UserLikesDtoFromJson(Map<String, dynamic> json) {
+  return _UserLikesDto.fromJson(json);
 }
 
 /// @nodoc
-mixin _$UserLikesEntities {
+mixin _$UserLikesDto {
   String? get userId => throw _privateConstructorUsedError;
   String? get userName => throw _privateConstructorUsedError;
   String? get userPhoto => throw _privateConstructorUsedError;
   String? get fullname => throw _privateConstructorUsedError;
 
-  /// Serializes this UserLikesEntities to a JSON map.
+  /// Serializes this UserLikesDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of UserLikesEntities
+  /// Create a copy of UserLikesDto
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $UserLikesEntitiesCopyWith<UserLikesEntities> get copyWith =>
+  $UserLikesDtoCopyWith<UserLikesDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UserLikesEntitiesCopyWith<$Res> {
-  factory $UserLikesEntitiesCopyWith(
-          UserLikesEntities value, $Res Function(UserLikesEntities) then) =
-      _$UserLikesEntitiesCopyWithImpl<$Res, UserLikesEntities>;
+abstract class $UserLikesDtoCopyWith<$Res> {
+  factory $UserLikesDtoCopyWith(
+          UserLikesDto value, $Res Function(UserLikesDto) then) =
+      _$UserLikesDtoCopyWithImpl<$Res, UserLikesDto>;
   @useResult
   $Res call(
       {String? userId, String? userName, String? userPhoto, String? fullname});
 }
 
 /// @nodoc
-class _$UserLikesEntitiesCopyWithImpl<$Res, $Val extends UserLikesEntities>
-    implements $UserLikesEntitiesCopyWith<$Res> {
-  _$UserLikesEntitiesCopyWithImpl(this._value, this._then);
+class _$UserLikesDtoCopyWithImpl<$Res, $Val extends UserLikesDto>
+    implements $UserLikesDtoCopyWith<$Res> {
+  _$UserLikesDtoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of UserLikesEntities
+  /// Create a copy of UserLikesDto
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -87,11 +87,11 @@ class _$UserLikesEntitiesCopyWithImpl<$Res, $Val extends UserLikesEntities>
 }
 
 /// @nodoc
-abstract class _$$UserLikesEntitiesImplCopyWith<$Res>
-    implements $UserLikesEntitiesCopyWith<$Res> {
-  factory _$$UserLikesEntitiesImplCopyWith(_$UserLikesEntitiesImpl value,
-          $Res Function(_$UserLikesEntitiesImpl) then) =
-      __$$UserLikesEntitiesImplCopyWithImpl<$Res>;
+abstract class _$$UserLikesDtoImplCopyWith<$Res>
+    implements $UserLikesDtoCopyWith<$Res> {
+  factory _$$UserLikesDtoImplCopyWith(
+          _$UserLikesDtoImpl value, $Res Function(_$UserLikesDtoImpl) then) =
+      __$$UserLikesDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -99,14 +99,14 @@ abstract class _$$UserLikesEntitiesImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$UserLikesEntitiesImplCopyWithImpl<$Res>
-    extends _$UserLikesEntitiesCopyWithImpl<$Res, _$UserLikesEntitiesImpl>
-    implements _$$UserLikesEntitiesImplCopyWith<$Res> {
-  __$$UserLikesEntitiesImplCopyWithImpl(_$UserLikesEntitiesImpl _value,
-      $Res Function(_$UserLikesEntitiesImpl) _then)
+class __$$UserLikesDtoImplCopyWithImpl<$Res>
+    extends _$UserLikesDtoCopyWithImpl<$Res, _$UserLikesDtoImpl>
+    implements _$$UserLikesDtoImplCopyWith<$Res> {
+  __$$UserLikesDtoImplCopyWithImpl(
+      _$UserLikesDtoImpl _value, $Res Function(_$UserLikesDtoImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of UserLikesEntities
+  /// Create a copy of UserLikesDto
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -116,7 +116,7 @@ class __$$UserLikesEntitiesImplCopyWithImpl<$Res>
     Object? userPhoto = freezed,
     Object? fullname = freezed,
   }) {
-    return _then(_$UserLikesEntitiesImpl(
+    return _then(_$UserLikesDtoImpl(
       userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
@@ -139,12 +139,12 @@ class __$$UserLikesEntitiesImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$UserLikesEntitiesImpl implements _UserLikesEntities {
-  const _$UserLikesEntitiesImpl(
+class _$UserLikesDtoImpl implements _UserLikesDto {
+  const _$UserLikesDtoImpl(
       {this.userId, this.userName, this.userPhoto, this.fullname});
 
-  factory _$UserLikesEntitiesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$UserLikesEntitiesImplFromJson(json);
+  factory _$UserLikesDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserLikesDtoImplFromJson(json);
 
   @override
   final String? userId;
@@ -157,14 +157,14 @@ class _$UserLikesEntitiesImpl implements _UserLikesEntities {
 
   @override
   String toString() {
-    return 'UserLikesEntities(userId: $userId, userName: $userName, userPhoto: $userPhoto, fullname: $fullname)';
+    return 'UserLikesDto(userId: $userId, userName: $userName, userPhoto: $userPhoto, fullname: $fullname)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UserLikesEntitiesImpl &&
+            other is _$UserLikesDtoImpl &&
             (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.userName, userName) ||
                 other.userName == userName) &&
@@ -179,32 +179,31 @@ class _$UserLikesEntitiesImpl implements _UserLikesEntities {
   int get hashCode =>
       Object.hash(runtimeType, userId, userName, userPhoto, fullname);
 
-  /// Create a copy of UserLikesEntities
+  /// Create a copy of UserLikesDto
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$UserLikesEntitiesImplCopyWith<_$UserLikesEntitiesImpl> get copyWith =>
-      __$$UserLikesEntitiesImplCopyWithImpl<_$UserLikesEntitiesImpl>(
-          this, _$identity);
+  _$$UserLikesDtoImplCopyWith<_$UserLikesDtoImpl> get copyWith =>
+      __$$UserLikesDtoImplCopyWithImpl<_$UserLikesDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UserLikesEntitiesImplToJson(
+    return _$$UserLikesDtoImplToJson(
       this,
     );
   }
 }
 
-abstract class _UserLikesEntities implements UserLikesEntities {
-  const factory _UserLikesEntities(
+abstract class _UserLikesDto implements UserLikesDto {
+  const factory _UserLikesDto(
       {final String? userId,
       final String? userName,
       final String? userPhoto,
-      final String? fullname}) = _$UserLikesEntitiesImpl;
+      final String? fullname}) = _$UserLikesDtoImpl;
 
-  factory _UserLikesEntities.fromJson(Map<String, dynamic> json) =
-      _$UserLikesEntitiesImpl.fromJson;
+  factory _UserLikesDto.fromJson(Map<String, dynamic> json) =
+      _$UserLikesDtoImpl.fromJson;
 
   @override
   String? get userId;
@@ -215,10 +214,10 @@ abstract class _UserLikesEntities implements UserLikesEntities {
   @override
   String? get fullname;
 
-  /// Create a copy of UserLikesEntities
+  /// Create a copy of UserLikesDto
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UserLikesEntitiesImplCopyWith<_$UserLikesEntitiesImpl> get copyWith =>
+  _$$UserLikesDtoImplCopyWith<_$UserLikesDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

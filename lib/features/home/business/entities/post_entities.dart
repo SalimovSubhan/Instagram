@@ -1,33 +1,43 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:instagramultra/features/home/business/entities/comment_entities.dart';
 import 'package:instagramultra/features/home/business/entities/user_favorite_entities.dart';
 import 'package:instagramultra/features/home/business/entities/user_likes_entities.dart';
 
-part 'post_entities.freezed.dart';
-part 'post_entities.g.dart';
+class PostEntities {
+  final String? title;
+  final int commentCount;
+  final List<CommentEntities>? comments;
+  final String? content;
+  final String datePublished;
+  final List<String>? images;
+  final bool postFavorite;
+  final int postId;
+  final bool postLike;
+  final int? postLikeCount;
+  final int postView;
+  final List<UserFavoriteEntities>? userFavorite;
+  final String userId;
+  final String? userImage;
+  final List<UserLikesEntities>? userLikes;
+  final String? userName;
+  final List<dynamic>? userViews;
 
-@freezed
-class PostEntities with _$PostEntities {
-  const factory PostEntities({
-    String? title,
-    required int commentCount,
-    List<CommentEntities>? comments,
-    String? content,
-    required String datePublished,
-    List<String>? images,
-    required bool postFavorite,
-    required int postId,
-    required bool postLike,
-    int? postLikeCount,
-    required int postView,
-    List<UserFavoriteEntities>? userFavorite,
-    required String userId,
-    String? userImage,
-    List<UserLikesEntities>? userLikes,
-    String? userName,
-    List<dynamic>? userViews,
-  }) = _PostEntities;
-
-  factory PostEntities.fromJson(Map<String, dynamic> json) =>
-      _$PostEntitiesFromJson(json);
+  PostEntities({
+    required this.title,
+    required this.commentCount,
+    required this.comments,
+    required this.content,
+    required this.datePublished,
+    required this.images,
+    required this.postFavorite,
+    required this.postId,
+    required this.postLike,
+    required this.postLikeCount,
+    required this.postView,
+    required this.userFavorite,
+    required this.userId,
+    required this.userImage,
+    required this.userLikes,
+    required this.userName,
+    required this.userViews,
+  });
 }

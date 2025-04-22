@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'response_post_entities.dart';
+part of 'response_post_dto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,58 +14,57 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ResponsePostEntities _$ResponsePostEntitiesFromJson(Map<String, dynamic> json) {
-  return _ResponsePostEntities.fromJson(json);
+ResponsePostDto _$ResponsePostDtoFromJson(Map<String, dynamic> json) {
+  return _ResponsePostDto.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ResponsePostEntities {
+mixin _$ResponsePostDto {
   int get pageNumber => throw _privateConstructorUsedError;
   int get pageSize => throw _privateConstructorUsedError;
   int get totalPage => throw _privateConstructorUsedError;
   int get totalRecord => throw _privateConstructorUsedError;
-  List<PostEntities> get data => throw _privateConstructorUsedError;
+  List<PostDto> get data => throw _privateConstructorUsedError;
   List<String> get errors => throw _privateConstructorUsedError;
   int get statusCode => throw _privateConstructorUsedError;
 
-  /// Serializes this ResponsePostEntities to a JSON map.
+  /// Serializes this ResponsePostDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of ResponsePostEntities
+  /// Create a copy of ResponsePostDto
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ResponsePostEntitiesCopyWith<ResponsePostEntities> get copyWith =>
+  $ResponsePostDtoCopyWith<ResponsePostDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ResponsePostEntitiesCopyWith<$Res> {
-  factory $ResponsePostEntitiesCopyWith(ResponsePostEntities value,
-          $Res Function(ResponsePostEntities) then) =
-      _$ResponsePostEntitiesCopyWithImpl<$Res, ResponsePostEntities>;
+abstract class $ResponsePostDtoCopyWith<$Res> {
+  factory $ResponsePostDtoCopyWith(
+          ResponsePostDto value, $Res Function(ResponsePostDto) then) =
+      _$ResponsePostDtoCopyWithImpl<$Res, ResponsePostDto>;
   @useResult
   $Res call(
       {int pageNumber,
       int pageSize,
       int totalPage,
       int totalRecord,
-      List<PostEntities> data,
+      List<PostDto> data,
       List<String> errors,
       int statusCode});
 }
 
 /// @nodoc
-class _$ResponsePostEntitiesCopyWithImpl<$Res,
-        $Val extends ResponsePostEntities>
-    implements $ResponsePostEntitiesCopyWith<$Res> {
-  _$ResponsePostEntitiesCopyWithImpl(this._value, this._then);
+class _$ResponsePostDtoCopyWithImpl<$Res, $Val extends ResponsePostDto>
+    implements $ResponsePostDtoCopyWith<$Res> {
+  _$ResponsePostDtoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ResponsePostEntities
+  /// Create a copy of ResponsePostDto
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -98,7 +97,7 @@ class _$ResponsePostEntitiesCopyWithImpl<$Res,
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<PostEntities>,
+              as List<PostDto>,
       errors: null == errors
           ? _value.errors
           : errors // ignore: cast_nullable_to_non_nullable
@@ -112,11 +111,11 @@ class _$ResponsePostEntitiesCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ResponsePostEntitiesImplCopyWith<$Res>
-    implements $ResponsePostEntitiesCopyWith<$Res> {
-  factory _$$ResponsePostEntitiesImplCopyWith(_$ResponsePostEntitiesImpl value,
-          $Res Function(_$ResponsePostEntitiesImpl) then) =
-      __$$ResponsePostEntitiesImplCopyWithImpl<$Res>;
+abstract class _$$ResponsePostDtoImplCopyWith<$Res>
+    implements $ResponsePostDtoCopyWith<$Res> {
+  factory _$$ResponsePostDtoImplCopyWith(_$ResponsePostDtoImpl value,
+          $Res Function(_$ResponsePostDtoImpl) then) =
+      __$$ResponsePostDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -124,20 +123,20 @@ abstract class _$$ResponsePostEntitiesImplCopyWith<$Res>
       int pageSize,
       int totalPage,
       int totalRecord,
-      List<PostEntities> data,
+      List<PostDto> data,
       List<String> errors,
       int statusCode});
 }
 
 /// @nodoc
-class __$$ResponsePostEntitiesImplCopyWithImpl<$Res>
-    extends _$ResponsePostEntitiesCopyWithImpl<$Res, _$ResponsePostEntitiesImpl>
-    implements _$$ResponsePostEntitiesImplCopyWith<$Res> {
-  __$$ResponsePostEntitiesImplCopyWithImpl(_$ResponsePostEntitiesImpl _value,
-      $Res Function(_$ResponsePostEntitiesImpl) _then)
+class __$$ResponsePostDtoImplCopyWithImpl<$Res>
+    extends _$ResponsePostDtoCopyWithImpl<$Res, _$ResponsePostDtoImpl>
+    implements _$$ResponsePostDtoImplCopyWith<$Res> {
+  __$$ResponsePostDtoImplCopyWithImpl(
+      _$ResponsePostDtoImpl _value, $Res Function(_$ResponsePostDtoImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ResponsePostEntities
+  /// Create a copy of ResponsePostDto
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -150,7 +149,7 @@ class __$$ResponsePostEntitiesImplCopyWithImpl<$Res>
     Object? errors = null,
     Object? statusCode = null,
   }) {
-    return _then(_$ResponsePostEntitiesImpl(
+    return _then(_$ResponsePostDtoImpl(
       pageNumber: null == pageNumber
           ? _value.pageNumber
           : pageNumber // ignore: cast_nullable_to_non_nullable
@@ -170,7 +169,7 @@ class __$$ResponsePostEntitiesImplCopyWithImpl<$Res>
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<PostEntities>,
+              as List<PostDto>,
       errors: null == errors
           ? _value._errors
           : errors // ignore: cast_nullable_to_non_nullable
@@ -185,20 +184,20 @@ class __$$ResponsePostEntitiesImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ResponsePostEntitiesImpl implements _ResponsePostEntities {
-  const _$ResponsePostEntitiesImpl(
+class _$ResponsePostDtoImpl implements _ResponsePostDto {
+  const _$ResponsePostDtoImpl(
       {required this.pageNumber,
       required this.pageSize,
       required this.totalPage,
       required this.totalRecord,
-      required final List<PostEntities> data,
+      required final List<PostDto> data,
       required final List<String> errors,
       required this.statusCode})
       : _data = data,
         _errors = errors;
 
-  factory _$ResponsePostEntitiesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ResponsePostEntitiesImplFromJson(json);
+  factory _$ResponsePostDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ResponsePostDtoImplFromJson(json);
 
   @override
   final int pageNumber;
@@ -208,9 +207,9 @@ class _$ResponsePostEntitiesImpl implements _ResponsePostEntities {
   final int totalPage;
   @override
   final int totalRecord;
-  final List<PostEntities> _data;
+  final List<PostDto> _data;
   @override
-  List<PostEntities> get data {
+  List<PostDto> get data {
     if (_data is EqualUnmodifiableListView) return _data;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_data);
@@ -229,14 +228,14 @@ class _$ResponsePostEntitiesImpl implements _ResponsePostEntities {
 
   @override
   String toString() {
-    return 'ResponsePostEntities(pageNumber: $pageNumber, pageSize: $pageSize, totalPage: $totalPage, totalRecord: $totalRecord, data: $data, errors: $errors, statusCode: $statusCode)';
+    return 'ResponsePostDto(pageNumber: $pageNumber, pageSize: $pageSize, totalPage: $totalPage, totalRecord: $totalRecord, data: $data, errors: $errors, statusCode: $statusCode)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ResponsePostEntitiesImpl &&
+            other is _$ResponsePostDtoImpl &&
             (identical(other.pageNumber, pageNumber) ||
                 other.pageNumber == pageNumber) &&
             (identical(other.pageSize, pageSize) ||
@@ -263,36 +262,35 @@ class _$ResponsePostEntitiesImpl implements _ResponsePostEntities {
       const DeepCollectionEquality().hash(_errors),
       statusCode);
 
-  /// Create a copy of ResponsePostEntities
+  /// Create a copy of ResponsePostDto
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ResponsePostEntitiesImplCopyWith<_$ResponsePostEntitiesImpl>
-      get copyWith =>
-          __$$ResponsePostEntitiesImplCopyWithImpl<_$ResponsePostEntitiesImpl>(
-              this, _$identity);
+  _$$ResponsePostDtoImplCopyWith<_$ResponsePostDtoImpl> get copyWith =>
+      __$$ResponsePostDtoImplCopyWithImpl<_$ResponsePostDtoImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ResponsePostEntitiesImplToJson(
+    return _$$ResponsePostDtoImplToJson(
       this,
     );
   }
 }
 
-abstract class _ResponsePostEntities implements ResponsePostEntities {
-  const factory _ResponsePostEntities(
+abstract class _ResponsePostDto implements ResponsePostDto {
+  const factory _ResponsePostDto(
       {required final int pageNumber,
       required final int pageSize,
       required final int totalPage,
       required final int totalRecord,
-      required final List<PostEntities> data,
+      required final List<PostDto> data,
       required final List<String> errors,
-      required final int statusCode}) = _$ResponsePostEntitiesImpl;
+      required final int statusCode}) = _$ResponsePostDtoImpl;
 
-  factory _ResponsePostEntities.fromJson(Map<String, dynamic> json) =
-      _$ResponsePostEntitiesImpl.fromJson;
+  factory _ResponsePostDto.fromJson(Map<String, dynamic> json) =
+      _$ResponsePostDtoImpl.fromJson;
 
   @override
   int get pageNumber;
@@ -303,16 +301,16 @@ abstract class _ResponsePostEntities implements ResponsePostEntities {
   @override
   int get totalRecord;
   @override
-  List<PostEntities> get data;
+  List<PostDto> get data;
   @override
   List<String> get errors;
   @override
   int get statusCode;
 
-  /// Create a copy of ResponsePostEntities
+  /// Create a copy of ResponsePostDto
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ResponsePostEntitiesImplCopyWith<_$ResponsePostEntitiesImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$ResponsePostDtoImplCopyWith<_$ResponsePostDtoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

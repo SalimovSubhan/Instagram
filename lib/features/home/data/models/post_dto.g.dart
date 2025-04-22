@@ -1,17 +1,17 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'post_entities.dart';
+part of 'post_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PostEntitiesImpl _$$PostEntitiesImplFromJson(Map<String, dynamic> json) =>
-    _$PostEntitiesImpl(
+_$PostDtoImpl _$$PostDtoImplFromJson(Map<String, dynamic> json) =>
+    _$PostDtoImpl(
       title: json['title'] as String?,
       commentCount: (json['commentCount'] as num).toInt(),
       comments: (json['comments'] as List<dynamic>?)
-          ?.map((e) => CommentEntities.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => CommentDto.fromJson(e as Map<String, dynamic>))
           .toList(),
       content: json['content'] as String?,
       datePublished: json['datePublished'] as String,
@@ -23,18 +23,20 @@ _$PostEntitiesImpl _$$PostEntitiesImplFromJson(Map<String, dynamic> json) =>
       postLikeCount: (json['postLikeCount'] as num?)?.toInt(),
       postView: (json['postView'] as num).toInt(),
       userFavorite: (json['userFavorite'] as List<dynamic>?)
-          ?.map((e) => UserFavoriteEntities.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => UserFavoriteDto.fromJson(e as Map<String, dynamic>))
           .toList(),
       userId: json['userId'] as String,
       userImage: json['userImage'] as String?,
       userLikes: (json['userLikes'] as List<dynamic>?)
-          ?.map((e) => UserLikesEntities.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => UserLikesDto.fromJson(e as Map<String, dynamic>))
           .toList(),
       userName: json['userName'] as String?,
-      userViews: json['userViews'] as List<dynamic>?,
+      userViews: (json['userViews'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
     );
 
-Map<String, dynamic> _$$PostEntitiesImplToJson(_$PostEntitiesImpl instance) =>
+Map<String, dynamic> _$$PostDtoImplToJson(_$PostDtoImpl instance) =>
     <String, dynamic>{
       'title': instance.title,
       'commentCount': instance.commentCount,

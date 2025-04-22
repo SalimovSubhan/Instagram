@@ -1,14 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'comment_entities.dart';
+part of 'comment_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CommentEntitiesImpl _$$CommentEntitiesImplFromJson(
-        Map<String, dynamic> json) =>
-    _$CommentEntitiesImpl(
+_$CommentDtoImpl _$$CommentDtoImplFromJson(Map<String, dynamic> json) =>
+    _$CommentDtoImpl(
       postCommentId: (json['postCommentId'] as num?)?.toInt(),
       userId: json['userId'] as String?,
       userName: json['userName'] as String?,
@@ -17,8 +16,7 @@ _$CommentEntitiesImpl _$$CommentEntitiesImplFromJson(
       comment: json['comment'] as String?,
     );
 
-Map<String, dynamic> _$$CommentEntitiesImplToJson(
-        _$CommentEntitiesImpl instance) =>
+Map<String, dynamic> _$$CommentDtoImplToJson(_$CommentDtoImpl instance) =>
     <String, dynamic>{
       'postCommentId': instance.postCommentId,
       'userId': instance.userId,

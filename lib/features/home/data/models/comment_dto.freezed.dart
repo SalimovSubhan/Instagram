@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'comment_entities.dart';
+part of 'comment_dto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-CommentEntities _$CommentEntitiesFromJson(Map<String, dynamic> json) {
-  return _CommentEntities.fromJson(json);
+CommentDto _$CommentDtoFromJson(Map<String, dynamic> json) {
+  return _CommentDto.fromJson(json);
 }
 
 /// @nodoc
-mixin _$CommentEntities {
+mixin _$CommentDto {
   int? get postCommentId => throw _privateConstructorUsedError;
   String? get userId => throw _privateConstructorUsedError;
   String? get userName => throw _privateConstructorUsedError;
@@ -27,21 +27,21 @@ mixin _$CommentEntities {
   String? get dateCommented => throw _privateConstructorUsedError;
   String? get comment => throw _privateConstructorUsedError;
 
-  /// Serializes this CommentEntities to a JSON map.
+  /// Serializes this CommentDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of CommentEntities
+  /// Create a copy of CommentDto
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $CommentEntitiesCopyWith<CommentEntities> get copyWith =>
+  $CommentDtoCopyWith<CommentDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CommentEntitiesCopyWith<$Res> {
-  factory $CommentEntitiesCopyWith(
-          CommentEntities value, $Res Function(CommentEntities) then) =
-      _$CommentEntitiesCopyWithImpl<$Res, CommentEntities>;
+abstract class $CommentDtoCopyWith<$Res> {
+  factory $CommentDtoCopyWith(
+          CommentDto value, $Res Function(CommentDto) then) =
+      _$CommentDtoCopyWithImpl<$Res, CommentDto>;
   @useResult
   $Res call(
       {int? postCommentId,
@@ -53,16 +53,16 @@ abstract class $CommentEntitiesCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CommentEntitiesCopyWithImpl<$Res, $Val extends CommentEntities>
-    implements $CommentEntitiesCopyWith<$Res> {
-  _$CommentEntitiesCopyWithImpl(this._value, this._then);
+class _$CommentDtoCopyWithImpl<$Res, $Val extends CommentDto>
+    implements $CommentDtoCopyWith<$Res> {
+  _$CommentDtoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of CommentEntities
+  /// Create a copy of CommentDto
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -104,11 +104,11 @@ class _$CommentEntitiesCopyWithImpl<$Res, $Val extends CommentEntities>
 }
 
 /// @nodoc
-abstract class _$$CommentEntitiesImplCopyWith<$Res>
-    implements $CommentEntitiesCopyWith<$Res> {
-  factory _$$CommentEntitiesImplCopyWith(_$CommentEntitiesImpl value,
-          $Res Function(_$CommentEntitiesImpl) then) =
-      __$$CommentEntitiesImplCopyWithImpl<$Res>;
+abstract class _$$CommentDtoImplCopyWith<$Res>
+    implements $CommentDtoCopyWith<$Res> {
+  factory _$$CommentDtoImplCopyWith(
+          _$CommentDtoImpl value, $Res Function(_$CommentDtoImpl) then) =
+      __$$CommentDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -121,14 +121,14 @@ abstract class _$$CommentEntitiesImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CommentEntitiesImplCopyWithImpl<$Res>
-    extends _$CommentEntitiesCopyWithImpl<$Res, _$CommentEntitiesImpl>
-    implements _$$CommentEntitiesImplCopyWith<$Res> {
-  __$$CommentEntitiesImplCopyWithImpl(
-      _$CommentEntitiesImpl _value, $Res Function(_$CommentEntitiesImpl) _then)
+class __$$CommentDtoImplCopyWithImpl<$Res>
+    extends _$CommentDtoCopyWithImpl<$Res, _$CommentDtoImpl>
+    implements _$$CommentDtoImplCopyWith<$Res> {
+  __$$CommentDtoImplCopyWithImpl(
+      _$CommentDtoImpl _value, $Res Function(_$CommentDtoImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CommentEntities
+  /// Create a copy of CommentDto
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -140,7 +140,7 @@ class __$$CommentEntitiesImplCopyWithImpl<$Res>
     Object? dateCommented = freezed,
     Object? comment = freezed,
   }) {
-    return _then(_$CommentEntitiesImpl(
+    return _then(_$CommentDtoImpl(
       postCommentId: freezed == postCommentId
           ? _value.postCommentId
           : postCommentId // ignore: cast_nullable_to_non_nullable
@@ -171,10 +171,8 @@ class __$$CommentEntitiesImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CommentEntitiesImpl
-    with DiagnosticableTreeMixin
-    implements _CommentEntities {
-  const _$CommentEntitiesImpl(
+class _$CommentDtoImpl with DiagnosticableTreeMixin implements _CommentDto {
+  const _$CommentDtoImpl(
       {this.postCommentId,
       this.userId,
       this.userName,
@@ -182,8 +180,8 @@ class _$CommentEntitiesImpl
       this.dateCommented,
       this.comment});
 
-  factory _$CommentEntitiesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CommentEntitiesImplFromJson(json);
+  factory _$CommentDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CommentDtoImplFromJson(json);
 
   @override
   final int? postCommentId;
@@ -200,14 +198,14 @@ class _$CommentEntitiesImpl
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CommentEntities(postCommentId: $postCommentId, userId: $userId, userName: $userName, userImage: $userImage, dateCommented: $dateCommented, comment: $comment)';
+    return 'CommentDto(postCommentId: $postCommentId, userId: $userId, userName: $userName, userImage: $userImage, dateCommented: $dateCommented, comment: $comment)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'CommentEntities'))
+      ..add(DiagnosticsProperty('type', 'CommentDto'))
       ..add(DiagnosticsProperty('postCommentId', postCommentId))
       ..add(DiagnosticsProperty('userId', userId))
       ..add(DiagnosticsProperty('userName', userName))
@@ -220,7 +218,7 @@ class _$CommentEntitiesImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CommentEntitiesImpl &&
+            other is _$CommentDtoImpl &&
             (identical(other.postCommentId, postCommentId) ||
                 other.postCommentId == postCommentId) &&
             (identical(other.userId, userId) || other.userId == userId) &&
@@ -238,34 +236,33 @@ class _$CommentEntitiesImpl
   int get hashCode => Object.hash(runtimeType, postCommentId, userId, userName,
       userImage, dateCommented, comment);
 
-  /// Create a copy of CommentEntities
+  /// Create a copy of CommentDto
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$CommentEntitiesImplCopyWith<_$CommentEntitiesImpl> get copyWith =>
-      __$$CommentEntitiesImplCopyWithImpl<_$CommentEntitiesImpl>(
-          this, _$identity);
+  _$$CommentDtoImplCopyWith<_$CommentDtoImpl> get copyWith =>
+      __$$CommentDtoImplCopyWithImpl<_$CommentDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CommentEntitiesImplToJson(
+    return _$$CommentDtoImplToJson(
       this,
     );
   }
 }
 
-abstract class _CommentEntities implements CommentEntities {
-  const factory _CommentEntities(
+abstract class _CommentDto implements CommentDto {
+  const factory _CommentDto(
       {final int? postCommentId,
       final String? userId,
       final String? userName,
       final String? userImage,
       final String? dateCommented,
-      final String? comment}) = _$CommentEntitiesImpl;
+      final String? comment}) = _$CommentDtoImpl;
 
-  factory _CommentEntities.fromJson(Map<String, dynamic> json) =
-      _$CommentEntitiesImpl.fromJson;
+  factory _CommentDto.fromJson(Map<String, dynamic> json) =
+      _$CommentDtoImpl.fromJson;
 
   @override
   int? get postCommentId;
@@ -280,10 +277,10 @@ abstract class _CommentEntities implements CommentEntities {
   @override
   String? get comment;
 
-  /// Create a copy of CommentEntities
+  /// Create a copy of CommentDto
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CommentEntitiesImplCopyWith<_$CommentEntitiesImpl> get copyWith =>
+  _$$CommentDtoImplCopyWith<_$CommentDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
