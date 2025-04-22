@@ -2,6 +2,7 @@ C/C++ Structured LogW
 U
 SC:\Flutter\src\flutter\packages\flutter_tools\gradle\src\main\groovy\CMakeLists.txtC
 A
+<<<<<<< HEAD
 ?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	ƒ‰§æå2§ üÃ‚¤á2|
 z
 xC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\armeabi-v7a\additional_project_files.txt	ƒ‰§æå2 Ã—çÁå2y
@@ -26,3 +27,29 @@ p
 nC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\armeabi-v7a\prefab_config.json	ƒ‰§æå2( Ï—çÁå2w
 u
 sC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\armeabi-v7a\symbol_folder_index.txt	ƒ‰§æå2j Ï—çÁå2
+=======
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	ŽŠÁå2§ üÃ‚¤á2|
+z
+xC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\armeabi-v7a\additional_project_files.txt	ŽŠÁå2 ƒŽŠÁå2y
+w
+uC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\armeabi-v7a\android_gradle_build.json	žŽŠÁå2î ‰ŽŠÁå2~
+|
+zC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\armeabi-v7a\android_gradle_build_mini.json	žŽŠÁå2Á ŽŠÁå2k
+i
+gC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\armeabi-v7a\build.ninja	žŽŠÁå2³Û à‹ŠÁå2o
+m
+kC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\armeabi-v7a\build.ninja.txt	žŽŠÁå2t
+r
+pC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\armeabi-v7a\build_file_index.txt	žŽŠÁå2S ”ŽŠÁå2u
+s
+qC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\armeabi-v7a\compile_commands.json	žŽŠÁå2	y
+w
+uC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\armeabi-v7a\compile_commands.json.bin	žŽŠÁå2
+
+}
+{C:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\armeabi-v7a\metadata_generation_command.txt	žŽŠÁå2’	 ‘ŽŠÁå2r
+p
+nC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\armeabi-v7a\prefab_config.json	žŽŠÁå2( ’ŽŠÁå2w
+u
+sC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\armeabi-v7a\symbol_folder_index.txt	žŽŠÁå2j ’ŽŠÁå2
+>>>>>>> 76918a8a3954db5f2eb713e7750118c8e79830c2

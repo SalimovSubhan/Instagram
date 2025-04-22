@@ -2,6 +2,7 @@ C/C++ Structured LogW
 U
 SC:\Flutter\src\flutter\packages\flutter_tools\gradle\src\main\groovy\CMakeLists.txtC
 A
+<<<<<<< HEAD
 ?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	Ç‰§æå2§ üÃ‚¤á2w
 u
 sC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86_64\additional_project_files.txt	Ç‰§æå2 ô´çÁå2t
@@ -26,3 +27,29 @@ k
 iC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86_64\prefab_config.json	Ç‰§æå2( ý´çÁå2r
 p
 nC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86_64\symbol_folder_index.txt	Ç‰§æå2e þ´çÁå2
+=======
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	ÇÕŠÁå2§ üÃ‚¤á2w
+u
+sC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86_64\additional_project_files.txt	ÇÕŠÁå2 ·ÕŠÁå2t
+r
+pC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86_64\android_gradle_build.json	ÇÕŠÁå2ä ¹ÕŠÁå2y
+w
+uC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86_64\android_gradle_build_mini.json	ÇÕŠÁå2· ¾ÕŠÁå2f
+d
+bC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86_64\build.ninja	ÇÕŠÁå2šÛ ÔÒŠÁå2j
+h
+fC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86_64\build.ninja.txt	ÇÕŠÁå2o
+m
+kC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86_64\build_file_index.txt	ÇÕŠÁå2S ÃÕŠÁå2p
+n
+lC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86_64\compile_commands.json	ÇÕŠÁå2	t
+r
+pC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86_64\compile_commands.json.bin	ÇÕŠÁå2
+z
+x
+vC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86_64\metadata_generation_command.txt	ÇÕŠÁå2ù ¿ÕŠÁå2m
+k
+iC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86_64\prefab_config.json	ÈÕŠÁå2( ÀÕŠÁå2r
+p
+nC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86_64\symbol_folder_index.txt	ÈÕŠÁå2e ÁÕŠÁå2
+>>>>>>> 76918a8a3954db5f2eb713e7750118c8e79830c2

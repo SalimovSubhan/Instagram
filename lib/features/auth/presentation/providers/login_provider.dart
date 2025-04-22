@@ -2,17 +2,14 @@ import 'dart:async';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instagramultra/features/auth/business/entities/auth_entities.dart';
 import 'package:instagramultra/features/auth/business/use_cases/login_usecase.dart';
-import 'package:instagramultra/features/auth/data/datasources/login_remote_datasource.dart';
+import 'package:instagramultra/features/auth/data/datasources/auth_datasources.dart';
 import 'package:instagramultra/features/auth/data/models/login_dto.dart';
-import 'package:instagramultra/features/auth/data/repositories/login_repository_imp.dart';
-import 'package:instagramultra/core/network/dio_service.dart';
+import 'package:instagramultra/features/auth/data/repositories/auth_repository_imp.dart';
 
 // Dependency Injection
-final dioProvider = Provider((ref) => DioService());
-final datasourceProvider =
-    Provider((ref) => LoginRemoteDatasource(dio: ref.read(dioProvider)));
+final datasourceProvider = Provider((ref) => AuthDatasources());
 final repositoryProviderImp = Provider(
-    (ref) => LoginRepositoryImp(datasource: ref.read(datasourceProvider)));
+    (ref) => AuthRepositoryImp(datasources: ref.read(datasourceProvider)));
 final loginUsecaseProvider = Provider(
     (ref) => LoginUsecase(repository: ref.read(repositoryProviderImp)));
 

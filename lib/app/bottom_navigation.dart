@@ -20,7 +20,10 @@ class BottomNavigation extends HookConsumerWidget {
       const ProfileScreen(),
     ];
     return Scaffold(
-      body: screens[index.value],
+      body: IndexedStack(
+        index: index.value,
+        children: screens,
+      ),
       bottomNavigationBar: BottomNavigationBar(
           onTap: (value) {
             if (value == index.value) {

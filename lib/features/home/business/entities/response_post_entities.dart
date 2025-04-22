@@ -1,21 +1,21 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:instagramultra/features/home/business/entities/post_entities.dart';
 
-part 'response_post_entities.g.dart';
-part 'response_post_entities.freezed.dart';
+class ResponsePostEntities {
+  final int pageNumber;
+  final int pageSize;
+  final int totalPage;
+  final int totalRecord;
+  final List<PostEntities> data;
+  final List<String> errors;
+  final int statusCode;
 
-@freezed
-class ResponsePostEntities with _$ResponsePostEntities {
-  const factory ResponsePostEntities({
-    required int pageNumber,
-    required int pageSize,
-    required int totalPage,
-    required int totalRecord,
-    required List<PostEntities> data,
-    required List<String> errors,
-    required int statusCode,
-  }) = _ResponsePostEntities;
-
-  factory ResponsePostEntities.fromJson(Map<String, dynamic> json) =>
-      _$ResponsePostEntitiesFromJson(json);
+  ResponsePostEntities({
+    required this.pageNumber,
+    required this.pageSize,
+    required this.totalPage,
+    required this.totalRecord,
+    required this.data,
+    required this.errors,
+    required this.statusCode,
+  });
 }
