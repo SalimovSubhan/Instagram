@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-
+ 
 class InstagramAppBar extends StatelessWidget {
-  const InstagramAppBar({
-    super.key,
-  });
+  final String userName;
+
+  const InstagramAppBar({super.key, required this.userName});
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +14,11 @@ class InstagramAppBar extends StatelessWidget {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Row(
-            children: [Icon(Icons.lock), Text('NickName')],
+          Row(
+            children: [
+              const Icon(Icons.lock),
+              Text(userName)
+            ],
           ),
           IconButton(
             onPressed: () {},

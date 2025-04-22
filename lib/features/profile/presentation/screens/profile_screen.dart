@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:instagramultra/features/profile/business/entities/profile_info_entity.dart';
 import 'package:instagramultra/features/profile/presentation/providers/profile_prodiver.dart';
 import 'package:instagramultra/features/profile/presentation/widgets/instagram_app_bar.dart';
 import 'package:instagramultra/features/profile/presentation/widgets/profile_button.dart';
@@ -13,40 +13,52 @@ class ProfileScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final proifleInfo = ref.watch(getProfileInfoProvider);
-    useEffect(() {
-      ref.read(getProfileInfoProvider);
-      return null;
-    }, []);
+    final profileInfo = ref.watch(getProfileInfoProvider);
+
     return DefaultTabController(
       length: 2,
       initialIndex: 1,
-      child: Scaffold(
-          body: proifleInfo.when(
-        data: (data) {
-          return const ProifleScrollView();
-        },
-        error: (error, stackTrace) => const Center(
-          child: Text('WHat the father???'),
-        ),
-        loading: () => Shimmer.fromColors(
-            child: const ProifleScrollView(),
-            baseColor: Colors.grey,
-            highlightColor: Colors.black),
-      )),
+      child: RefreshIndicator.adaptive(
+        onRefresh: () async =>
+            ref.read(getProfileInfoProvider.notifier).fetchProfileInfo(),
+        child: Scaffold(
+            body: profileInfo.when(
+          data: (data) {
+            return ProfileScrollView(
+              profileInfo: data,
+            );
+          },
+          error: (error, stackTrace) => const Center(
+            child: Text('WHat the father???'),
+          ),
+          loading: () => Shimmer.fromColors(
+              baseColor: Colors.grey,
+              highlightColor: Colors.black,
+              child: Container(
+                width: 100,
+                height: 100,
+                color: Colors.amber,
+              )),
+        )),
+      ),
     );
   }
 }
 
-class ProifleScrollView extends ConsumerWidget {
-  const ProifleScrollView({super.key});
+class ProfileScrollView extends ConsumerWidget {
+  final ProfileInfoEntity profileInfo;
 
+  const ProfileScrollView({super.key, required this.profileInfo});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return CustomScrollView(
       slivers: [
-        const InstagramAppBar(),
-        const ProfileInfoWidget(),
+        InstagramAppBar(
+          userName: profileInfo.userName.toString(),
+        ),
+        ProfileInfoWidget(
+          profileInfo: profileInfo,
+        ),
         SliverToBoxAdapter(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
