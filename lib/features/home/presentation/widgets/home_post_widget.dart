@@ -120,6 +120,7 @@ class HomePostWidget extends HookConsumerWidget {
                                       context: context,
                                       builder: (context) {
                                         return HomeCommentWidget(
+                                          postId: item.postId,
                                           comments: item.comments!,
                                         );
                                       },
