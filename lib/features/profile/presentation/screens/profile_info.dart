@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:instagramultra/features/profile/business/entities/profile_info_entity.dart';
+import 'package:instagramultra/features/profile/presentation/screens/image_view_screen.dart';
 
-class ProfileInfoWidget extends StatelessWidget {
+class ProfileInfo extends StatelessWidget {
   final ProfileInfoEntity profileInfo;
 
-  const ProfileInfoWidget({super.key, required this.profileInfo});
+  const ProfileInfo({super.key, required this.profileInfo});
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +17,27 @@ class ProfileInfoWidget extends StatelessWidget {
         children: [
           Column(
             children: [
-              CircleAvatar(
-                radius: 40,
-                backgroundImage: NetworkImage(
-                    'https://instagram-api.softclub.tj/images/${profileInfo.image}'),
+              GestureDetector(
+                onLongPress: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ImageViewScreen(
+                            image:
+                                'https://instagram-api.softclub.tj/images/${profileInfo.image}'),
+                      ));
+                },
+                child: Hero(
+                  createRectTween: (begin, end) =>
+                      RectTween(begin: begin, end: end),
+                  transitionOnUserGestures: false,
+                  tag: 'profile_image',
+                  child: CircleAvatar(
+                    radius: 40,
+                    backgroundImage: NetworkImage(
+                        'https://instagram-api.softclub.tj/images/${profileInfo.image}'),
+                  ),
+                ),
               ),
               Text('${profileInfo.about}'),
             ],

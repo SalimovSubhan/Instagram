@@ -5,7 +5,7 @@ import 'package:instagramultra/features/profile/business/entities/profile_info_e
 import 'package:instagramultra/features/profile/presentation/providers/profile_prodiver.dart';
 import 'package:instagramultra/features/profile/presentation/widgets/instagram_app_bar.dart';
 import 'package:instagramultra/features/profile/presentation/widgets/profile_button.dart';
-import 'package:instagramultra/features/profile/presentation/widgets/profile_info_widget.dart';
+import 'package:instagramultra/features/profile/presentation/screens/profile_info.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ProfileScreen extends HookConsumerWidget {
@@ -73,7 +73,7 @@ class ProfileScrollView extends ConsumerWidget {
         InstagramAppBar(
           userName: profileInfo.userName.toString(),
         ),
-        ProfileInfoWidget(
+        ProfileInfo(
           profileInfo: profileInfo,
         ),
         SliverToBoxAdapter(
