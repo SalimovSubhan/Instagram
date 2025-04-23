@@ -15,32 +15,48 @@ class ProfileScreen extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final profileInfo = ref.watch(getProfileInfoProvider);
 
-    return DefaultTabController(
-      length: 2,
-      initialIndex: 1,
-      child: RefreshIndicator.adaptive(
-        onRefresh: () async =>
-            ref.read(getProfileInfoProvider.notifier).fetchProfileInfo(),
-        child: Scaffold(
-            backgroundColor: Colors.white,
-            body: profileInfo.when(
-              data: (data) {
-                return ProfileScrollView(
-                  profileInfo: data,
-                );
-              },
-              error: (error, stackTrace) => const Center(
-                child: Text('WHat the father???'),
-              ),
-              loading: () => Shimmer.fromColors(
-                  baseColor: Colors.grey,
-                  highlightColor: Colors.black,
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    color: Colors.amber,
-                  )),
-            )),
+    return Theme(
+      data: ThemeData(
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            backgroundColor: Colors.black54,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            textStyle: const TextStyle(
+                color: Colors.white, fontWeight: FontWeight.w500),
+          ),
+        ),
+      ),
+      child: DefaultTabController(
+        length: 2,
+        initialIndex: 1,
+        child: RefreshIndicator.adaptive(
+          color: Colors.black,
+          backgroundColor: Colors.white,
+          onRefresh: () async =>
+              ref.read(getProfileInfoProvider.notifier).fetchProfileInfo(),
+          child: Scaffold(
+              backgroundColor: Colors.white,
+              body: profileInfo.when(
+                data: (data) {
+                  return ProfileScrollView(
+                    profileInfo: data,
+                  );
+                },
+                error: (error, stackTrace) => const Center(
+                  child: Text('WHat the father???'),
+                ),
+                loading: () => Shimmer.fromColors(
+                    baseColor: Colors.grey,
+                    highlightColor: Colors.black,
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      color: Colors.amber,
+                    )),
+              )),
+        ),
       ),
     );
   }
@@ -111,6 +127,8 @@ class ProfileTabbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SliverToBoxAdapter(
       child: TabBar(
+        labelColor: Colors.black,
+        indicatorColor: Colors.black,
         tabs: [
           Tab(child: Icon(Icons.local_post_office)),
           Tab(child: Icon(Icons.video_call))

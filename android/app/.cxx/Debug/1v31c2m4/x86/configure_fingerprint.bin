@@ -2,54 +2,27 @@ C/C++ Structured LogW
 U
 SC:\Flutter\src\flutter\packages\flutter_tools\gradle\src\main\groovy\CMakeLists.txtC
 A
-<<<<<<< HEAD
-?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	­‰§æå2§ üÃ‚¤á2t
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	©§×†æ2§ üÃ‚¤á2t
 r
-pC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\additional_project_files.txt	­‰§æå2 ’§çÁå2q
+pC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\additional_project_files.txt	ª§×†æ2 §×†æ2q
 o
-mC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\android_gradle_build.json	­‰§æå2Þ –§çÁå2v
+mC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\android_gradle_build.json	ª§×†æ2Þ Ÿ§×†æ2v
 t
-rC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\android_gradle_build_mini.json	­‰§æå2± š§çÁå2c
+rC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\android_gradle_build_mini.json	ª§×†æ2± ¢§×†æ2c
 a
-_C:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\build.ninja	­‰§æå2‹Û ô¥çÁå2g
+_C:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\build.ninja	ª§×†æ2‹Û ¬¦×†æ2g
 e
-cC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\build.ninja.txt	­‰§æå2l
+cC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\build.ninja.txt	ª§×†æ2l
 j
-hC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\build_file_index.txt	­‰§æå2S ž§çÁå2m
+hC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\build_file_index.txt	ª§×†æ2S ¦§×†æ2m
 k
-iC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\compile_commands.json	­‰§æå2	q
+iC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\compile_commands.json	ª§×†æ2	q
 o
-mC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\compile_commands.json.bin	­‰§æå2
+mC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\compile_commands.json.bin	ª§×†æ2
 w
 u
-sC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\metadata_generation_command.txt	­‰§æå2ê œ§çÁå2j
+sC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\metadata_generation_command.txt	ª§×†æ2ê £§×†æ2j
 h
-fC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\prefab_config.json	­‰§æå2( §çÁå2o
+fC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\prefab_config.json	ª§×†æ2( ¤§×†æ2o
 m
-kC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\symbol_folder_index.txt	­‰§æå2b §çÁå2
-=======
-?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	ûÂŠÁå2§ üÃ‚¤á2t
-r
-pC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\additional_project_files.txt	ûÂŠÁå2 ÜÂŠÁå2q
-o
-mC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\android_gradle_build.json	ûÂŠÁå2Þ îÂŠÁå2v
-t
-rC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\android_gradle_build_mini.json	ûÂŠÁå2± òÂŠÁå2c
-a
-_C:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\build.ninja	ûÂŠÁå2‹Û ÁŠÁå2g
-e
-cC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\build.ninja.txt	ûÂŠÁå2l
-j
-hC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\build_file_index.txt	ûÂŠÁå2S ÷ÂŠÁå2m
-k
-iC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\compile_commands.json	ûÂŠÁå2	q
-o
-mC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\compile_commands.json.bin	ûÂŠÁå2
-w
-u
-sC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\metadata_generation_command.txt	ûÂŠÁå2ê óÂŠÁå2j
-h
-fC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\prefab_config.json	ûÂŠÁå2( õÂŠÁå2o
-m
-kC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\symbol_folder_index.txt	ûÂŠÁå2b öÂŠÁå2
->>>>>>> 76918a8a3954db5f2eb713e7750118c8e79830c2
+kC:\Users\Abdukarim\Desktop\projects\Instagram-1\android\app\.cxx\Debug\1v31c2m4\x86\symbol_folder_index.txt	ª§×†æ2b ¥§×†æ2

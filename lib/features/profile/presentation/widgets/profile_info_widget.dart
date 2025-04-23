@@ -25,24 +25,55 @@ class ProfileInfoWidget extends StatelessWidget {
           ),
           Row(
             children: [
-              Column(children: [
-                Text(profileInfo.postCount.toString()),
-                const Text('Posts')
-              ]),
-              const Gap(40),
-              Column(children: [
-                Text(profileInfo.subscribersCount.toString()),
-                const Text('Posts')
-              ]),
-              const Gap(40),
-              Column(children: [
-                Text(profileInfo.subscriptionsCount.toString()),
-                const Text('Posts')
-              ])
+              ProfileInfoItem(
+                infoCount: profileInfo.postCount ?? 0,
+                title: 'Posts',
+                onTap: () {},
+              ),
+              const Gap(35),
+              ProfileInfoItem(
+                infoCount: profileInfo.subscribersCount ?? 0,
+                title: 'Followers',
+                onTap: () {},
+              ),
+              const Gap(35),
+              ProfileInfoItem(
+                infoCount: profileInfo.subscriptionsCount ?? 0,
+                title: 'Follows',
+                onTap: () {},
+              )
             ],
           )
         ],
       ),
+    );
+  }
+}
+
+class ProfileInfoItem extends StatelessWidget {
+  final int infoCount;
+  final String title;
+  final void Function()? onTap;
+  const ProfileInfoItem(
+      {super.key,
+      required this.infoCount,
+      required this.title,
+      required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Column(children: [
+        Text(
+          infoCount.toString(),
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+        ),
+        Text(
+          title,
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+        )
+      ]),
     );
   }
 }

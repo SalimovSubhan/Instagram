@@ -9,8 +9,11 @@ class ProfileButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
         child: TextButton(
-            style: TextButton.styleFrom(backgroundColor: Colors.black),
-            onPressed: () {},
-            child: const Text('Edit Profile')));
+      onPressed: () {},
+      child: const Text(
+        'Edit Profile',
+        style: TextStyle(color: Colors.white),
+      ),
+    ));
   }
 }
