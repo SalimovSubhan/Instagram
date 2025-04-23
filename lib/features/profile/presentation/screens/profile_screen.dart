@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instagramultra/features/profile/business/entities/profile_info_entity.dart';
@@ -14,7 +15,10 @@ class ProfileScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final profileInfo = ref.watch(getProfileInfoProvider);
-
+    useEffect(() {
+      ref.read(getProfileInfoProvider.notifier).fetchProfileInfo();
+      return null;
+    }, []);
     return Theme(
       data: ThemeData(
         textButtonTheme: TextButtonThemeData(

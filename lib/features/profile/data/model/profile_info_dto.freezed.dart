@@ -186,13 +186,13 @@ class __$$ProfileInfoDTOImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ProfileInfoDTOImpl implements _ProfileInfoDTO {
   const _$ProfileInfoDTOImpl(
-      {this.image,
-      this.userId,
-      this.userName,
-      this.about,
-      this.postCount,
-      this.subscribersCount,
-      this.subscriptionsCount});
+      {required this.image,
+      required this.userId,
+      required this.userName,
+      required this.about,
+      required this.postCount,
+      required this.subscribersCount,
+      required this.subscriptionsCount});
 
   factory _$ProfileInfoDTOImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProfileInfoDTOImplFromJson(json);
@@ -259,13 +259,13 @@ class _$ProfileInfoDTOImpl implements _ProfileInfoDTO {
 
 abstract class _ProfileInfoDTO implements ProfileInfoDTO {
   const factory _ProfileInfoDTO(
-      {final String? image,
-      final String? userId,
-      final String? userName,
-      final String? about,
-      final int? postCount,
-      final int? subscribersCount,
-      final int? subscriptionsCount}) = _$ProfileInfoDTOImpl;
+      {required final String? image,
+      required final String? userId,
+      required final String? userName,
+      required final String? about,
+      required final int? postCount,
+      required final int? subscribersCount,
+      required final int? subscriptionsCount}) = _$ProfileInfoDTOImpl;
 
   factory _ProfileInfoDTO.fromJson(Map<String, dynamic> json) =
       _$ProfileInfoDTOImpl.fromJson;

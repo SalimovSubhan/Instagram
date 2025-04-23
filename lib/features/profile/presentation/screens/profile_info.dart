@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:instagramultra/features/profile/business/entities/profile_info_entity.dart';
 import 'package:instagramultra/features/profile/presentation/screens/image_view_screen.dart';
 
@@ -52,7 +53,9 @@ class ProfileInfo extends StatelessWidget {
               ProfileInfoItem(
                 infoCount: profileInfo.subscribersCount ?? 0,
                 title: 'Followers',
-                onTap: () {},
+                onTap: () {
+                  context.push('/followers');
+                },
               ),
               const Gap(35),
               ProfileInfoItem(
@@ -80,7 +83,7 @@ class ProfileInfoItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: onTap,
       child: Column(children: [
         Text(

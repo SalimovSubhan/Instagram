@@ -4,7 +4,7 @@ import 'package:instagramultra/app/splash_screen.dart';
 import 'package:instagramultra/features/auth/presentation/screens/login_screen.dart';
 import 'package:instagramultra/features/auth/presentation/screens/register_screen.dart';
 import 'package:instagramultra/features/home/presentation/screens/home_screen.dart';
-import 'package:instagramultra/features/profile/presentation/screens/followers_screen.dart';
+import 'package:instagramultra/features/profile/presentation/screens/follow_screen.dart';
 import 'package:instagramultra/features/profile/presentation/screens/profile_screen.dart';
 
 bool isSplashShow = false;
@@ -32,7 +32,7 @@ final router = GoRouter(
     GoRoute(
         path: '/followers',
         builder: (context, state) =>
-            const FollowersScreen()), //Экран подписчиков
+            const FollowScreen(intialIndex: 1)), //Экран подписчиков
 
     //app
     GoRoute(
