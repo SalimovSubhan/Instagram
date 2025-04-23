@@ -3,6 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instagramultra/features/home/presentation/providers/home_providers.dart';
 import 'package:instagramultra/features/home/presentation/screens/home_screen.dart';
+import 'package:instagramultra/features/profile/presentation/screens/profile_screen.dart';
 
 class BottomNavigation extends HookConsumerWidget {
   const BottomNavigation({super.key});
@@ -16,7 +17,7 @@ class BottomNavigation extends HookConsumerWidget {
       const Scaffold(),
       const Scaffold(),
       const Scaffold(),
-      const Scaffold(),
+      const ProfileScreen(),
     ];
     return Scaffold(
       body: IndexedStack(
