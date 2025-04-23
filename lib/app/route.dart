@@ -31,8 +31,15 @@ final router = GoRouter(
     //Followers
     GoRoute(
         path: '/followers',
-        builder: (context, state) =>
-            const FollowScreen(intialIndex: 1)), //Экран подписчиков
+        builder: (context, state) {
+          final extra = state.extra as Map<String, dynamic>;
+          final initialIndex = extra['initialIndex'];
+          final userId = extra['userId'];
+          return FollowScreen(
+            intialIndex: initialIndex,
+            myId: userId,
+          );
+        }), //Экран подписчиков
 
     //app
     GoRoute(

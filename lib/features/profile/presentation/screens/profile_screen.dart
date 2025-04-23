@@ -3,7 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instagramultra/features/profile/business/entities/profile_info_entity.dart';
-import 'package:instagramultra/features/profile/presentation/providers/profile_prodiver.dart';
+import 'package:instagramultra/features/profile/presentation/providers/profile_info_provider.dart';
 import 'package:instagramultra/features/profile/presentation/widgets/instagram_app_bar.dart';
 import 'package:instagramultra/features/profile/presentation/widgets/profile_button.dart';
 import 'package:instagramultra/features/profile/presentation/screens/profile_info.dart';
@@ -34,7 +34,7 @@ class ProfileScreen extends HookConsumerWidget {
       ),
       child: DefaultTabController(
         length: 2,
-        initialIndex: 1,
+        initialIndex: 0,
         child: RefreshIndicator.adaptive(
           color: Colors.black,
           backgroundColor: Colors.white,

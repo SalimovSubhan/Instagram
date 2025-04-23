@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instagramultra/features/profile/business/entities/profile_info_entity.dart';
 import 'package:instagramultra/features/profile/presentation/screens/image_view_screen.dart';
+import 'package:instagramultra/features/profile/utils/get_stories.dart';
 
-class ProfileInfo extends StatelessWidget {
+class ProfileInfo extends HookConsumerWidget {
   final ProfileInfoEntity profileInfo;
 
   const ProfileInfo({super.key, required this.profileInfo});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    useEffect(() {
+      getMyId();
+      return null;
+    }, []);
     return SliverToBoxAdapter(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -23,8 +30,9 @@ class ProfileInfo extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => ImageViewScreen(
-                            image:
-                                'https://instagram-api.softclub.tj/images/${profileInfo.image}'),
+                          image:
+                              'https://instagram-api.softclub.tj/images/${profileInfo.image}',
+                        ),
                       ));
                 },
                 child: Hero(
@@ -54,7 +62,10 @@ class ProfileInfo extends StatelessWidget {
                 infoCount: profileInfo.subscribersCount ?? 0,
                 title: 'Followers',
                 onTap: () {
-                  context.push('/followers');
+                  context.push('/followers', extra: {
+                    'initialIndex': 0,
+                    'userId': myId,
+                  });
                 },
               ),
               const Gap(35),

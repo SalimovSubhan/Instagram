@@ -1,19 +1,12 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:instagramultra/core/network/dio_service.dart';
+import 'package:instagramultra/features/profile/business/entities/follow_entity.dart';
 import 'package:instagramultra/features/profile/business/entities/profile_info_entity.dart';
 import 'package:instagramultra/features/profile/business/use_cases/get_profile_info_use_cases.dart';
 import 'package:instagramultra/features/profile/data/data_sources/get_followers_info_data_sources.dart';
-import 'package:instagramultra/features/profile/data/data_sources/get_profile_info_data_sources.dart';
 import 'package:instagramultra/features/profile/data/respositories/profile_repository_impl.dart';
+import 'package:instagramultra/features/profile/presentation/providers/followers_provider.dart';
 import 'package:riverpod/riverpod.dart';
 
-final dioProvider = Provider(
-  (ref) => DioService(),
-);
-
-final profileInfoDataSourceProvider = Provider(
-  (ref) => GetProfileInfoDataSources(dio: ref.read(dioProvider)),
-);
 final followersDataSourceProvider = Provider(
   (ref) => GetFollowersInfoDataSources(dio: ref.read(dioProvider)),
 );
@@ -31,6 +24,9 @@ final getProfileInfoProvider =
     StateNotifierProvider<ProfileController, AsyncValue<ProfileInfoEntity>>(
   (ref) => ProfileController(ref),
 );
+final getFollowersInfoProivder = StateNotifierProvider.family(
+  (ref, String userId) => FollowersController(ref, userId: userId),
+);
 
 class ProfileController extends StateNotifier<AsyncValue<ProfileInfoEntity>> {
   final Ref ref;
@@ -41,6 +37,24 @@ class ProfileController extends StateNotifier<AsyncValue<ProfileInfoEntity>> {
     try {
       final profile = await ref.read(getUseCaseProvider).getProfileInfo();
       state = AsyncData(profile);
+    } catch (e, st) {
+      state = AsyncError(e, st);
+    }
+  }
+}
+
+class FollowersController extends StateNotifier<AsyncValue<FollowEntity>> {
+  final Ref ref;
+  final String userId;
+  FollowersController(this.ref, {required this.userId})
+      : super(const AsyncLoading()) {
+    getFollowers();
+  }
+  Future<void> getFollowers() async {
+    try {
+      final followers =
+          await ref.read(getUseCaseProvider).getFollowersInfo(userId: userId);
+      state = AsyncData(followers);
     } catch (e, st) {
       state = AsyncError(e, st);
     }
