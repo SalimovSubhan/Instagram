@@ -5,6 +5,8 @@ import 'package:instagramultra/features/auth/presentation/screens/login_screen.d
 import 'package:instagramultra/features/auth/presentation/screens/register_screen.dart';
 import 'package:instagramultra/features/home/presentation/screens/home_screen.dart';
 
+bool isSplashShow = false;
+
 final router = GoRouter(
   routes: [
     //auth
@@ -32,10 +34,11 @@ final router = GoRouter(
         builder: (context, state) => const SplashScreen()), // Сплеш скрин
   ],
   redirect: (context, state) async {
-    if (state.matchedLocation == '/botomNavigation' ||
-        state.matchedLocation == '/login') {
+    if (isSplashShow == false) {
+      isSplashShow = true;
+      return '/splash';
+    } else {
       return null;
     }
-    return '/splash';
   },
 );
