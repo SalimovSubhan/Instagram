@@ -80,6 +80,7 @@ class Apiendoint {
     int? id,
     int? pageNumber,
     int? commentId,
+    int? postId,
   }) {
     const String path = '/Post';
     return switch (endpoint) {
@@ -89,9 +90,9 @@ class Apiendoint {
       PostEndpoint.GET_MY_POSTS => '$path/get-my-posts',
       PostEndpoint.GET_FOLLOWING_POST => '$path/get-following-post',
       PostEndpoint.ADD_POST => '$path/add-post',
-      PostEndpoint.DELETE_POST => '$path/delete-post?id=$id',
-      PostEndpoint.LIKE_POST => '$path/like-post?postId=$id',
-      PostEndpoint.VIEW_POST => '$path/view-post?postId=$id',
+      PostEndpoint.DELETE_POST => '$path/delete-post?id=$postId',
+      PostEndpoint.LIKE_POST => '$path/like-post?postId=$postId',
+      PostEndpoint.VIEW_POST => '$path/view-post?postId=$postId',
       PostEndpoint.ADD_COMMENT => '$path/add-comment',
       PostEndpoint.DELETE_COMMENT =>
         '$path/delete-comment?commentId=$commentId',

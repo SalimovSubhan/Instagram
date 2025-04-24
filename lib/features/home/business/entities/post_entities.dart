@@ -11,7 +11,7 @@ class PostEntities {
   final List<String>? images;
   final bool postFavorite;
   final int postId;
-  final bool postLike;
+  bool? postLike;
   final int? postLikeCount;
   final int postView;
   final List<UserFavoriteEntities>? userFavorite;
