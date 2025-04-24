@@ -3,6 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instagramultra/features/profile/business/entities/follow_entity.dart';
 import 'package:instagramultra/features/profile/presentation/providers/followers_provider.dart';
+import 'package:instagramultra/features/profile/presentation/providers/follows_provider.dart';
 
 class FollowScreen extends HookConsumerWidget {
   final int intialIndex;
@@ -14,8 +15,10 @@ class FollowScreen extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // ignore: unused_local_variable
     final followers = ref.watch(getFollowersInfoProivder(myId));
+    final follows = ref.watch(getFollowsInfoProivder(myId));
     useEffect(() {
       ref.read(getFollowersInfoProivder(myId).notifier).getFollowers();
+      ref.read(getFollowsInfoProivder(myId).notifier).getFollows();
       return null;
     }, []);
     return DefaultTabController(
@@ -33,18 +36,26 @@ class FollowScreen extends HookConsumerWidget {
         body: TabBarView(
           children: [
             followers.when(
-              data: (data) => FollowersView(
-                followers: data,
+              data: (data) => FollowRelatioshipView(
+                followData: data,
               ),
               error: (error, stackTrace) => const Center(
                 child: Text('Some Error Has Ocured'),
               ),
               loading: () => const Center(
-                child: CircularProgressIndicator(),
+                child: CircularProgressIndicator.adaptive(),
               ),
             ),
-            Container(
-              color: Colors.amber,
+            follows.when(
+              data: (data) => FollowRelatioshipView(
+                followData: data,
+              ),
+              error: (error, stackTrace) => const Center(
+                child: Text('Some Error Has Ocured'),
+              ),
+              loading: () => const Center(
+                child: CircularProgressIndicator.adaptive(),
+              ),
             ),
           ],
         ),
@@ -53,18 +64,18 @@ class FollowScreen extends HookConsumerWidget {
   }
 }
 
-class FollowersView extends StatelessWidget {
-  final List<FollowEntity> followers;
-  const FollowersView({super.key, required this.followers});
+class FollowRelatioshipView extends StatelessWidget {
+  final List<FollowEntity> followData;
+  const FollowRelatioshipView({super.key, required this.followData});
 
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
         itemBuilder: (context, index) => FollowerTile(
-              followerInfo: followers[index],
+              followerInfo: followData[index],
             ),
         separatorBuilder: (context, index) => const SizedBox(height: 10),
-        itemCount: followers.length);
+        itemCount: followData.length);
   }
 }
 
@@ -91,6 +102,49 @@ class FollowerTile extends StatelessWidget {
                 Text(followerInfo.userShortInfo.userName,
                     style: const TextStyle(fontWeight: FontWeight.bold)),
                 Text(followerInfo.userShortInfo.fullName,
+                    style: const TextStyle(color: Colors.grey)),
+              ],
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue,
+            ),
+            child: const Text(
+              'Follow',
+              style: TextStyle(color: Colors.white),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class FollowingTile extends StatelessWidget {
+  final FollowEntity followInfo;
+  const FollowingTile({super.key, required this.followInfo});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+      child: Row(
+        children: [
+          CircleAvatar(
+            radius: 30,
+            backgroundImage: NetworkImage(
+                'https://instagram-api.softclub.tj/images/${followInfo.userShortInfo.userPhoto}'),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(followInfo.userShortInfo.userName,
+                    style: const TextStyle(fontWeight: FontWeight.bold)),
+                Text(followInfo.userShortInfo.fullName,
                     style: const TextStyle(color: Colors.grey)),
               ],
             ),
