@@ -23,9 +23,6 @@ final getProfileInfoProvider =
     StateNotifierProvider<ProfileController, AsyncValue<ProfileInfoEntity>>(
   (ref) => ProfileController(ref),
 );
-final getFollowersInfoProivder = StateNotifierProvider.family(
-  (ref, String userId) => FollowersController(ref, userId: userId),
-);
 
 class ProfileController extends StateNotifier<AsyncValue<ProfileInfoEntity>> {
   final Ref ref;
