@@ -79,6 +79,7 @@ class Apiendoint {
     PostEndpoint endpoint, {
     int? id,
     int? pageNumber,
+    int? commentId,
   }) {
     const String path = '/Post';
     return switch (endpoint) {
@@ -92,7 +93,8 @@ class Apiendoint {
       PostEndpoint.LIKE_POST => '$path/like-post?postId=$id',
       PostEndpoint.VIEW_POST => '$path/view-post?postId=$id',
       PostEndpoint.ADD_COMMENT => '$path/add-comment',
-      PostEndpoint.DELETE_COMMENT => '$path/elete-comment?commentId=12',
+      PostEndpoint.DELETE_COMMENT =>
+        '$path/delete-comment?commentId=$commentId',
       PostEndpoint.ADD_POST_FAVORITE => '$path/add-post-favorite',
     };
   }

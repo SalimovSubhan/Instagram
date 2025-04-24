@@ -28,7 +28,6 @@ class DioService {
         if (istoken && token != null) 'Authorization': 'Bearer $token',
       };
       log.info('🔗 GET $url');
-      log.info('🧾 Headers: $headers');
 
       final response = await dio.get(
         url,
@@ -61,7 +60,6 @@ class DioService {
         if (istoken && token != null) 'Authorization': 'Bearer $token',
       };
       log.info('🔗 Post $url');
-      log.info('🧾 Headers: $headers');
 
       final response = await dio.post(
         url,
@@ -93,7 +91,6 @@ class DioService {
         if (istoken && token != null) 'Authorization': 'Bearer $token',
       };
       log.info('🔗 Delete $url');
-      log.info('🧾 Headers: $headers');
 
       final response = await dio.delete(
         url,
@@ -126,7 +123,6 @@ class DioService {
         if (istoken && token != null) 'Authorization': 'Bearer $token',
       };
       log.info('🔗 Put $url');
-      log.info('🧾 Headers: $headers');
 
       final response = await dio.put(
         url,
