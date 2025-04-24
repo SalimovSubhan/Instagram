@@ -4,4 +4,5 @@ import 'package:instagramultra/features/profile/business/entities/profile_info_e
 abstract class ProfileRepository {
   Future<ProfileInfoEntity> getProfileInfo();
   Future<List<FollowEntity>> getFollowersInfo({required String userId});
+  Future<List<FollowEntity>> getFollowsInfo({required String userId});
 }
