@@ -1,8 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:instagramultra/features/home/business/entities/post_entities.dart';
+import 'package:instagramultra/features/home/presentation/providers/like_post_provider.dart';
 import 'package:instagramultra/features/home/presentation/widgets/home_comment_widget.dart';
 import 'package:instagramultra/features/home/presentation/widgets/video_player_widget.dart';
 
@@ -12,6 +14,18 @@ class HomePostWidget extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final isLiked = useState<bool>(false);
+    ref.listen(
+      likePostProvider,
+      (previous, next) {
+        next.whenOrNull(
+          data: (data) {
+            isLiked.value = data['data'];
+          },
+        );
+      },
+    );
+
     return PagedSliverList<int, PostEntities>(
       pagingController: pagingController,
       builderDelegate: PagedChildBuilderDelegate(
@@ -105,8 +119,21 @@ class HomePostWidget extends HookConsumerWidget {
                             Column(
                               children: [
                                 IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(Icons.favorite_border),
+                                  onPressed: () async {
+                                    item.postLike = item.postLike;
+                                    await ref
+                                        .read(likePostProvider.notifier)
+                                        .likePost(postId: item.postId);
+                                    item.postLike = isLiked.value;
+                                  },
+                                  icon: Icon(
+                                    item.postLike!
+                                        ? Icons.favorite
+                                        : Icons.favorite_border,
+                                    color: item.postLike!
+                                        ? Colors.red
+                                        : Colors.black,
+                                  ),
                                 ),
                                 Text('${item.postLikeCount}'),
                               ],

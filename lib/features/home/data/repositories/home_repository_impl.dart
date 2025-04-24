@@ -21,4 +21,14 @@ class HomeRepositoryImpl implements HomeRepository {
   Future<PostEntities> getPostById({required int postId}) {
     return remoteDatacource.getPostById(postId: postId);
   }
+
+  @override
+  Future deleteComment({required int commentId}) {
+    return remoteDatacource.deleteComment(commentId: commentId);
+  }
+
+  @override
+  Future likePost({required int postId}) {
+    return remoteDatacource.likePost(postId: postId);
+  }
 }

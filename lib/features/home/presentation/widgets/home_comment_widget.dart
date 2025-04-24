@@ -3,6 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instagramultra/features/home/business/entities/comment_entities.dart';
 import 'package:instagramultra/features/home/presentation/providers/add_comment_provider.dart';
+import 'package:instagramultra/features/home/presentation/providers/delete_comment_provider.dart';
 import 'package:instagramultra/features/home/presentation/providers/get_post_by_id_provider.dart';
 
 class HomeCommentWidget extends HookConsumerWidget {
@@ -15,6 +16,14 @@ class HomeCommentWidget extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final commetnController = useTextEditingController();
     final post = ref.watch(getPostByIdProvider(postId));
+
+    useEffect(() {
+      // ignore: unused_result
+      ref.refresh(getPostByIdProvider(postId));
+      return () {
+        commetnController.dispose();
+      };
+    }, []);
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -38,78 +47,91 @@ class HomeCommentWidget extends HookConsumerWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       CommentEntities? comment = data.comments?[index];
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 15),
-                        child: Row(
-                          children: [
-                            Container(
-                              width: 35,
-                              height: 35,
-                              decoration: BoxDecoration(
-                                color: const Color.fromARGB(255, 232, 229, 229),
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                  image: NetworkImage(comment?.userImage != null
-                                      ? 'https://instagram-api.softclub.tj/images/${comment?.userImage}'
-                                      : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3r8NVoEX5mtT_ko24SieILHQ9wemn2y5h3Q&s'),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 12),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  children: [
-                                    Text(
-                                      '${comment?.userName}',
-                                      maxLines: 1,
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          overflow: TextOverflow.ellipsis),
-                                    ),
-                                    const SizedBox(width: 8),
-                                    Text(
-                                      '${comment?.dateCommented?.split('T').first}',
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.w300),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(height: 2),
-                                SizedBox(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.7,
-                                  child: Text(
-                                    '${comment?.comment}',
-                                    maxLines: 3,
-                                    style: const TextStyle(
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
+                      return GestureDetector(
+                        onLongPress: () async {
+                          await ref
+                              .read(deleteCommentProvider.notifier)
+                              .deleteComment(
+                                  commentId: comment!.postCommentId!);
+                          // ignore: unused_result
+                          ref.refresh(getPostByIdProvider(postId));
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 15),
+                          child: Row(
+                            children: [
+                              Container(
+                                width: 35,
+                                height: 35,
+                                decoration: BoxDecoration(
+                                  color:
+                                      const Color.fromARGB(255, 232, 229, 229),
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                    image: NetworkImage(comment?.userImage !=
+                                            null
+                                        ? 'https://instagram-api.softclub.tj/images/${comment?.userImage}'
+                                        : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3r8NVoEX5mtT_ko24SieILHQ9wemn2y5h3Q&s'),
                                   ),
                                 ),
-                                const SizedBox(height: 5),
-                                const Text(
-                                  'Ответить',
-                                  style: TextStyle(fontWeight: FontWeight.w300),
-                                )
-                              ],
-                            ),
-                            const Spacer(),
-                            const Column(
-                              children: [
-                                Icon(
-                                  Icons.favorite_border,
-                                  size: 20,
-                                ),
-                                Text('8'),
-                              ],
-                            ),
-                          ],
+                              ),
+                              const SizedBox(width: 12),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Text(
+                                        '${comment?.userName}',
+                                        maxLines: 1,
+                                        style: const TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            overflow: TextOverflow.ellipsis),
+                                      ),
+                                      const SizedBox(width: 8),
+                                      Text(
+                                        '${comment?.dateCommented?.split('T').first}',
+                                        style: const TextStyle(
+                                            fontWeight: FontWeight.w300),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 2),
+                                  SizedBox(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.7,
+                                    child: Text(
+                                      '${comment?.comment}',
+                                      maxLines: 3,
+                                      style: const TextStyle(
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 5),
+                                  const Text(
+                                    'Ответить',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w300),
+                                  )
+                                ],
+                              ),
+                              const Spacer(),
+                              const Column(
+                                children: [
+                                  Icon(
+                                    Icons.favorite_border,
+                                    size: 20,
+                                  ),
+                                  Text('8'),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       );
                     },
-                    itemCount: comments.length,
+                    itemCount: data.comments?.length,
                   );
                 },
                 error: (error, stackTrace) => const Text('Чтото пошло нетак'),
