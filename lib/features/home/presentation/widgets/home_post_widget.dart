@@ -17,6 +17,7 @@ class HomePostWidget extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final isLiked = useState<bool>(false);
     final isLikeFavorite = useState<bool>(false);
+
     ref.listen(
       likePostProvider,
       (previous, next) {
@@ -27,6 +28,7 @@ class HomePostWidget extends HookConsumerWidget {
         );
       },
     );
+
     ref.listen(
       likePostFavoriteProvider,
       (previous, next) {
@@ -166,6 +168,20 @@ class HomePostWidget extends HookConsumerWidget {
                                       context: context,
                                       builder: (context) {
                                         return HomeCommentWidget(
+                                          onCommentDecrement: () {
+                                            item.commentCount =
+                                                (item.commentCount) - 1;
+                                            pagingController.itemList =
+                                                List.from(
+                                                    pagingController.itemList!);
+                                          },
+                                          onCommentAdded: () {
+                                            item.commentCount =
+                                                (item.commentCount) + 1;
+                                            pagingController.itemList =
+                                                List.from(
+                                                    pagingController.itemList!);
+                                          },
                                           postId: item.postId,
                                           comments: item.comments!,
                                         );

@@ -4,7 +4,7 @@ import 'package:instagramultra/features/home/business/entities/user_likes_entiti
 
 class PostEntities {
   final String? title;
-  final int commentCount;
+  int commentCount;
   final List<CommentEntities>? comments;
   final String? content;
   final String datePublished;
