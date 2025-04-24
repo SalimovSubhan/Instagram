@@ -28,7 +28,7 @@ class LoginScreen extends HookConsumerWidget {
             if (data.data != null) {
               await prefs.saveToken(data.data!);
               if (!context.mounted) return;
-              context.go('/');
+              context.go('/botomNavigation');
             } else {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
