@@ -44,11 +44,22 @@ class HomeRemoteDatacource {
     final url = Apiendoint.post(PostEndpoint.GET_POST_BY_ID, id: postId);
     final response = await dio.get(url: url);
     if (response.statusCode == 200) {
-      log.info('${response.statusCode} add comment');
+      log.info('${response.statusCode} get post by id');
     } else {
       log.error('${response.statusCode} add comment : $response');
     }
     final result = PostDto.fromJson(response.data['data']).toEntity();
     return result;
+  }
+
+  Future deleteComment({required int commentId}) async {
+    final url =
+        Apiendoint.post(PostEndpoint.DELETE_COMMENT, commentId: commentId);
+    final response = await dio.delete(url: url);
+    if (response.statusCode == 200) {
+      log.info('${response.statusCode} delete comment');
+    } else {
+      log.error('${response.statusCode} delete comment : $response');
+    }
   }
 }

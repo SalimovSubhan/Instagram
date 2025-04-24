@@ -7,4 +7,6 @@ abstract class HomeRepository {
   Future addComment({required String comment, required int postId});
 
   Future<PostEntities> getPostById({required int postId});
+
+  Future deleteComment({required int commentId});
 }
