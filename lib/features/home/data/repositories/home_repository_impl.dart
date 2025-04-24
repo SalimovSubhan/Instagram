@@ -31,4 +31,9 @@ class HomeRepositoryImpl implements HomeRepository {
   Future likePost({required int postId}) {
     return remoteDatacource.likePost(postId: postId);
   }
+
+  @override
+  Future addPostFavorite({required int postId}) {
+    return remoteDatacource.addPostFavorite(postId: postId);
+  }
 }

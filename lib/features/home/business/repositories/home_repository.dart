@@ -11,4 +11,6 @@ abstract class HomeRepository {
   Future<void> deleteComment({required int commentId});
 
   Future likePost({required int postId});
+
+  Future addPostFavorite({required int postId});
 }

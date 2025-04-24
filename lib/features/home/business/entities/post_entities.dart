@@ -9,10 +9,10 @@ class PostEntities {
   final String? content;
   final String datePublished;
   final List<String>? images;
-  final bool postFavorite;
+  bool? postFavorite;
   final int postId;
   bool? postLike;
-  final int? postLikeCount;
+  int? postLikeCount;
   final int postView;
   final List<UserFavoriteEntities>? userFavorite;
   final String userId;

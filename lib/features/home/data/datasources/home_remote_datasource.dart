@@ -80,4 +80,20 @@ class HomeRemoteDatacource {
     }
     return response.data;
   }
+
+  //add post favorite
+  Future addPostFavorite({required int postId}) async {
+    final url = Apiendoint.post(PostEndpoint.ADD_POST_FAVORITE);
+    final body = {
+      'postId': postId,
+    };
+
+    final response = await dio.post(url: url, body: body);
+    if (response.statusCode == 200) {
+      log.info('${response.statusCode} add post favorite');
+    } else {
+      log.error('${response.statusCode} add post favorite : $response');
+    }
+    return response.data;
+  }
 }

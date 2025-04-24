@@ -4,6 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:instagramultra/features/home/business/entities/post_entities.dart';
+import 'package:instagramultra/features/home/presentation/providers/add_post_favorite_provider.dart';
 import 'package:instagramultra/features/home/presentation/providers/like_post_provider.dart';
 import 'package:instagramultra/features/home/presentation/widgets/home_comment_widget.dart';
 import 'package:instagramultra/features/home/presentation/widgets/video_player_widget.dart';
@@ -15,12 +16,23 @@ class HomePostWidget extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isLiked = useState<bool>(false);
+    final isLikeFavorite = useState<bool>(false);
     ref.listen(
       likePostProvider,
       (previous, next) {
         next.whenOrNull(
           data: (data) {
             isLiked.value = data['data'];
+          },
+        );
+      },
+    );
+    ref.listen(
+      likePostFavoriteProvider,
+      (previous, next) {
+        next.whenOrNull(
+          data: (data) {
+            isLikeFavorite.value = data['data'];
           },
         );
       },
@@ -125,6 +137,13 @@ class HomePostWidget extends HookConsumerWidget {
                                         .read(likePostProvider.notifier)
                                         .likePost(postId: item.postId);
                                     item.postLike = isLiked.value;
+                                    if (item.postLike!) {
+                                      item.postLikeCount =
+                                          (item.postLikeCount!) + 1;
+                                    } else {
+                                      item.postLikeCount =
+                                          (item.postLikeCount!) - 1;
+                                    }
                                   },
                                   icon: Icon(
                                     item.postLike!
@@ -170,8 +189,18 @@ class HomePostWidget extends HookConsumerWidget {
                           ],
                         ),
                         IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.turned_in_not_sharp)),
+                          onPressed: () async {
+                            await ref
+                                .read(likePostFavoriteProvider.notifier)
+                                .likePostFavorite(postId: item.postId);
+                            item.postFavorite = isLikeFavorite.value;
+                          },
+                          icon: Icon(
+                            item.postFavorite!
+                                ? Icons.turned_in
+                                : Icons.turned_in_not,
+                          ),
+                        ),
                       ],
                     ),
                     Padding(
