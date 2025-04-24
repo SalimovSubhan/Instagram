@@ -11,6 +11,7 @@ class FollowScreen extends HookConsumerWidget {
       {super.key, required this.intialIndex, required this.myId});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // ignore: unused_local_variable
     final followers = ref.watch(getFollowersInfoProivder(myId));
     useEffect(() {
       ref.read(getFollowersInfoProivder(myId).notifier).getFollowers();
@@ -20,27 +21,27 @@ class FollowScreen extends HookConsumerWidget {
       length: 2,
       initialIndex: intialIndex,
       child: Scaffold(
-        appBar: AppBar(),
-        body: Column(
+        appBar: AppBar(
+          bottom: const TabBar(
+            tabs: [
+              Tab(text: 'Followers'),
+              Tab(text: 'Follows'),
+            ],
+          ),
+        ),
+        body: TabBarView(
           children: [
-            const TabBar(
-              tabs: [
-                Tab(text: 'Followers'),
-                Tab(text: 'Follows'),
-              ],
+            ListView.separated(
+                itemBuilder: (context, index) => Container(
+                      height: 100,
+                      color: Colors.amber,
+                    ),
+                separatorBuilder: (context, index) =>
+                    const SizedBox(height: 10), 
+                itemCount: 10),
+            Container(
+              color: Colors.amber,
             ),
-            Expanded(
-              child: TabBarView(
-                children: [
-                  Container(
-                    color: Colors.black,
-                  ),
-                  Container(
-                    color: Colors.amber,
-                  ),
-                ],
-              ),
-            )
           ],
         ),
       ),

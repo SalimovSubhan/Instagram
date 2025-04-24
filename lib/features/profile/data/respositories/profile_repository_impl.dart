@@ -17,7 +17,7 @@ class ProfileRepositoryImpl implements ProfileRepository {
   }
 
   @override
-  Future<FollowEntity> getFollowersInfo({required String userId}) {
+  Future<List<FollowEntity>> getFollowersInfo({required String userId}) {
     return getFollowersInfoDataSources.getFollowersInfo(userId: userId);
   }
 }

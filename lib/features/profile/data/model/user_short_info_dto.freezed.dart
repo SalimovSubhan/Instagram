@@ -22,8 +22,8 @@ UserShortInfoDTO _$UserShortInfoDTOFromJson(Map<String, dynamic> json) {
 mixin _$UserShortInfoDTO {
   String get userId => throw _privateConstructorUsedError;
   String get userName => throw _privateConstructorUsedError;
-  String get userPhoto => throw _privateConstructorUsedError;
-  String get fullName => throw _privateConstructorUsedError;
+  String? get userPhoto => throw _privateConstructorUsedError;
+  String? get fullName => throw _privateConstructorUsedError;
 
   /// Serializes this UserShortInfoDTO to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $UserShortInfoDTOCopyWith<$Res> {
       _$UserShortInfoDTOCopyWithImpl<$Res, UserShortInfoDTO>;
   @useResult
   $Res call(
-      {String userId, String userName, String userPhoto, String fullName});
+      {String userId, String userName, String? userPhoto, String? fullName});
 }
 
 /// @nodoc
@@ -62,8 +62,8 @@ class _$UserShortInfoDTOCopyWithImpl<$Res, $Val extends UserShortInfoDTO>
   $Res call({
     Object? userId = null,
     Object? userName = null,
-    Object? userPhoto = null,
-    Object? fullName = null,
+    Object? userPhoto = freezed,
+    Object? fullName = freezed,
   }) {
     return _then(_value.copyWith(
       userId: null == userId
@@ -74,14 +74,14 @@ class _$UserShortInfoDTOCopyWithImpl<$Res, $Val extends UserShortInfoDTO>
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as String,
-      userPhoto: null == userPhoto
+      userPhoto: freezed == userPhoto
           ? _value.userPhoto
           : userPhoto // ignore: cast_nullable_to_non_nullable
-              as String,
-      fullName: null == fullName
+              as String?,
+      fullName: freezed == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -95,7 +95,7 @@ abstract class _$$UserShortInfoDTOImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String userId, String userName, String userPhoto, String fullName});
+      {String userId, String userName, String? userPhoto, String? fullName});
 }
 
 /// @nodoc
@@ -113,8 +113,8 @@ class __$$UserShortInfoDTOImplCopyWithImpl<$Res>
   $Res call({
     Object? userId = null,
     Object? userName = null,
-    Object? userPhoto = null,
-    Object? fullName = null,
+    Object? userPhoto = freezed,
+    Object? fullName = freezed,
   }) {
     return _then(_$UserShortInfoDTOImpl(
       userId: null == userId
@@ -125,14 +125,14 @@ class __$$UserShortInfoDTOImplCopyWithImpl<$Res>
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as String,
-      userPhoto: null == userPhoto
+      userPhoto: freezed == userPhoto
           ? _value.userPhoto
           : userPhoto // ignore: cast_nullable_to_non_nullable
-              as String,
-      fullName: null == fullName
+              as String?,
+      fullName: freezed == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -143,8 +143,8 @@ class _$UserShortInfoDTOImpl implements _UserShortInfoDTO {
   _$UserShortInfoDTOImpl(
       {required this.userId,
       required this.userName,
-      required this.userPhoto,
-      required this.fullName});
+      this.userPhoto,
+      this.fullName});
 
   factory _$UserShortInfoDTOImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserShortInfoDTOImplFromJson(json);
@@ -154,9 +154,9 @@ class _$UserShortInfoDTOImpl implements _UserShortInfoDTO {
   @override
   final String userName;
   @override
-  final String userPhoto;
+  final String? userPhoto;
   @override
-  final String fullName;
+  final String? fullName;
 
   @override
   String toString() {
@@ -203,8 +203,8 @@ abstract class _UserShortInfoDTO implements UserShortInfoDTO {
   factory _UserShortInfoDTO(
       {required final String userId,
       required final String userName,
-      required final String userPhoto,
-      required final String fullName}) = _$UserShortInfoDTOImpl;
+      final String? userPhoto,
+      final String? fullName}) = _$UserShortInfoDTOImpl;
 
   factory _UserShortInfoDTO.fromJson(Map<String, dynamic> json) =
       _$UserShortInfoDTOImpl.fromJson;
@@ -214,9 +214,9 @@ abstract class _UserShortInfoDTO implements UserShortInfoDTO {
   @override
   String get userName;
   @override
-  String get userPhoto;
+  String? get userPhoto;
   @override
-  String get fullName;
+  String? get fullName;
 
   /// Create a copy of UserShortInfoDTO
   /// with the given fields replaced by the non-null parameter values.

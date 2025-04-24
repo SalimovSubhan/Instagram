@@ -11,8 +11,8 @@ _$UserShortInfoDTOImpl _$$UserShortInfoDTOImplFromJson(
     _$UserShortInfoDTOImpl(
       userId: json['userId'] as String,
       userName: json['userName'] as String,
-      userPhoto: json['userPhoto'] as String,
-      fullName: json['fullName'] as String,
+      userPhoto: json['userPhoto'] as String?,
+      fullName: json['fullName'] as String?,
     );
 
 Map<String, dynamic> _$$UserShortInfoDTOImplToJson(

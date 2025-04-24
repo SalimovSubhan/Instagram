@@ -5,6 +5,6 @@ import 'package:instagramultra/features/profile/data/model/mapper/user_short_inf
 extension FollowMapper on FollowDTO {
   FollowEntity toEntity() => FollowEntity(
         id: id,
-        userHortInfo: userShortInfo.toEntity(),
+        userShortInfo: userShortInfo.toEntity(),
       );
 }

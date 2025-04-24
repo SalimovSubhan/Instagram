@@ -5,11 +5,12 @@ part 'user_short_info_dto.freezed.dart';
 
 @freezed
 class UserShortInfoDTO with _$UserShortInfoDTO {
-  factory UserShortInfoDTO(
-      {required String userId,
-      required String userName,
-      required String userPhoto,
-      required String fullName}) = _UserShortInfoDTO;
+  factory UserShortInfoDTO({
+    required String userId,
+    required String userName,
+     String? userPhoto,
+     String? fullName,
+  }) = _UserShortInfoDTO;
   factory UserShortInfoDTO.fromJson(Map<String, dynamic> json) =>
       _$UserShortInfoDTOFromJson(json);
 }

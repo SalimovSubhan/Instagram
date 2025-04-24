@@ -9,16 +9,22 @@ class GetFollowersInfoDataSources {
   LogService log = LogService();
   final DioService dio;
   GetFollowersInfoDataSources({required this.dio});
-  Future<FollowEntity> getFollowersInfo({required String userId}) async {
+  Future<List<FollowEntity>> getFollowersInfo({required String userId}) async {
     final url = Apiendoint.followingRelationShip(
-        FollowingRelationShipEndpoint.GET_SUBSCRIBERS);
+      FollowingRelationShipEndpoint.GET_SUBSCRIBERS,
+      userId: userId,
+    );
     final response = await dio.get(url: url);
+    final followers = response.data['data'] as List<dynamic>;
     if (response.statusCode == 200) {
       log.info(
-          '${response.statusCode}  :Get Profile Info successfully : ${response.data['data']}');
+          '${response.statusCode}  :Get Followers Info successfully : ${response.data['data']}');
     } else {
-      log.error('${response.statusCode}:Get Profile info ${response.data}');
+      log.error('${response.statusCode}:Get Followers info ${response.data}');
     }
-    return FollowDTO.fromJson(response.data['data']).toEntity();
+    return List.generate(
+      followers.length,
+      (index) => FollowDTO.fromJson(followers[index]).toEntity(),
+    );
   }
 }

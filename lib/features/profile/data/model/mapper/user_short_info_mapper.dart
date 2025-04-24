@@ -5,7 +5,7 @@ extension UserShortInfoMapper on UserShortInfoDTO {
   UserShortInfoEntity toEntity() => UserShortInfoEntity(
         userName: userName,
         userId: userId,
-        userPhoto: userPhoto,
-        fullName: fullName,
+        userPhoto: userPhoto ?? '',
+        fullName: fullName ?? '',
       );
 }

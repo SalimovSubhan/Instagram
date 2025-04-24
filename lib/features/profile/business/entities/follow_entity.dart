@@ -2,10 +2,10 @@ import 'package:instagramultra/features/profile/business/entities/user_short_inf
 
 class FollowEntity {
   final int id;
-  final UserShortInfoEntity userHortInfo;
+  final UserShortInfoEntity userShortInfo;
 
   FollowEntity({
     required this.id,
-    required this.userHortInfo,
+    required this.userShortInfo,
   });
 }

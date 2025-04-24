@@ -1,3 +1,4 @@
+
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instagramultra/core/network/dio_service.dart';
 import 'package:instagramultra/features/profile/business/entities/follow_entity.dart';
@@ -31,7 +32,8 @@ final getFollowersInfoProivder = StateNotifierProvider.family(
   (ref, String userId) => FollowersController(ref, userId: userId),
 );
 
-class FollowersController extends StateNotifier<AsyncValue<FollowEntity>> {
+class FollowersController
+    extends StateNotifier<AsyncValue<List<FollowEntity>>> {
   final Ref ref;
   final String userId;
   FollowersController(this.ref, {required this.userId})
