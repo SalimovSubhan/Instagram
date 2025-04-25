@@ -16,4 +16,7 @@ class GetProfileInfoUseCases {
   Future<List<FollowEntity>> getFollowsInfo({required String userId}) async {
     return await profileRepository.getFollowsInfo(userId: userId);
   }
+  Future<bool> getIsFollowed({required String userId}) async {
+    return await profileRepository.getIsFollowed(userId: userId);
+  }
 }

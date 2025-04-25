@@ -3,6 +3,7 @@ import 'package:instagramultra/core/network/dio_service.dart';
 import 'package:instagramultra/features/profile/business/use_cases/get_profile_info_use_cases.dart';
 import 'package:instagramultra/features/profile/data/data_sources/get_followers_info_data_sources.dart';
 import 'package:instagramultra/features/profile/data/data_sources/get_follows_info_data_sources.dart';
+import 'package:instagramultra/features/profile/data/data_sources/get_is_followed_info_data_sources.dart';
 import 'package:instagramultra/features/profile/data/data_sources/get_profile_info_data_sources.dart';
 import 'package:instagramultra/features/profile/data/respositories/profile_repository_impl.dart';
 import 'package:riverpod/riverpod.dart';
@@ -13,6 +14,7 @@ final dioProvider = Provider(
 
 final profileRepositoryProvider = Provider(
   (ref) => ProfileRepositoryImpl(
+      getIsFollowedInfoDataSources: ref.read(isFollowedInfoDataSources),
       getFollowsInfoDataSources: ref.read(followsDataSourceProvider),
       getProfileInfoDataSources: ref.read(profileInfoDataSourceProvider),
       getFollowersInfoDataSources: ref.read(followersDataSourceProvider)),
@@ -27,6 +29,10 @@ final followsDataSourceProvider = Provider(
 
 final profileInfoDataSourceProvider = Provider(
   (ref) => GetProfileInfoDataSources(dio: ref.read(dioProvider)),
+);
+
+final isFollowedInfoDataSources = Provider(
+  (ref) => GetIsFollowedInfoDataSources(dio: ref.read(dioProvider)),
 );
 
 final getUseCaseProvider = Provider(

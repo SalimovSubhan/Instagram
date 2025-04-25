@@ -17,6 +17,7 @@ class FollowsController extends StateNotifier<AsyncValue<List<FollowEntity>>> {
   }
   Future<void> getFollows() async {
     try {
+      state = const AsyncLoading(); 
       final follows =
           await ref.read(getUseCaseProvider).getFollowsInfo(userId: userId);
       state = AsyncData(follows);

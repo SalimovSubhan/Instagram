@@ -18,6 +18,7 @@ class FollowersController
   }
   Future<void> getFollowers() async {
     try {
+      state = const AsyncLoading(); 
       final followers =
           await ref.read(getUseCaseProvider).getFollowersInfo(userId: userId);
       state = AsyncData(followers);

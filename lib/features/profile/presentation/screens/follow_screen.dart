@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instagramultra/features/profile/business/entities/follow_entity.dart';
 import 'package:instagramultra/features/profile/presentation/providers/followers_provider.dart';
 import 'package:instagramultra/features/profile/presentation/providers/follows_provider.dart';
+import 'package:instagramultra/features/profile/presentation/providers/is_follower_provider.dart';
 
 class FollowScreen extends HookConsumerWidget {
   final int intialIndex;
@@ -79,12 +80,15 @@ class FollowRelatioshipView extends StatelessWidget {
   }
 }
 
-class FollowerTile extends StatelessWidget {
+class FollowerTile extends HookConsumerWidget {
   final FollowEntity followerInfo;
   const FollowerTile({super.key, required this.followerInfo});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isFollowed =
+        ref.watch(isFolloweProvider(followerInfo.userShortInfo.userId));
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
       child: Row(
@@ -106,16 +110,21 @@ class FollowerTile extends StatelessWidget {
               ],
             ),
           ),
-          ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.blue,
+          isFollowed.when(
+            error: (error, stackTrace) => const Text(''),
+            loading: () => const Text(''),
+            data: (data) => ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor:
+                    isFollowed.asData!.value ? Colors.blue : Colors.black,
+              ),
+              child: Text(
+                isFollowed.asData!.value ? 'Follow' : 'UnFollow',
+                style: const TextStyle(color: Colors.white),
+              ),
             ),
-            child: const Text(
-              'Follow',
-              style: TextStyle(color: Colors.white),
-            ),
-          )
+          ),
         ],
       ),
     );

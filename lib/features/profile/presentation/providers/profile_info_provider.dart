@@ -16,6 +16,7 @@ class ProfileController extends StateNotifier<AsyncValue<ProfileInfoEntity>> {
   }
   Future<void> fetchProfileInfo() async {
     try {
+      state = const AsyncLoading();
       final profile = await ref.read(getUseCaseProvider).getProfileInfo();
       state = AsyncData(profile);
     } catch (e, st) {
