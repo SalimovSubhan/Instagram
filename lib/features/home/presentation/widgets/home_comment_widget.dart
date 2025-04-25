@@ -9,8 +9,15 @@ import 'package:instagramultra/features/home/presentation/providers/get_post_by_
 class HomeCommentWidget extends HookConsumerWidget {
   final List<CommentEntities> comments;
   final int postId;
-  const HomeCommentWidget(
-      {super.key, required this.comments, required this.postId});
+  final VoidCallback onCommentAdded;
+  final VoidCallback onCommentDecrement;
+  const HomeCommentWidget({
+    super.key,
+    required this.comments,
+    required this.postId,
+    required this.onCommentAdded,
+    required this.onCommentDecrement,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -20,9 +27,7 @@ class HomeCommentWidget extends HookConsumerWidget {
     useEffect(() {
       // ignore: unused_result
       ref.refresh(getPostByIdProvider(postId));
-      return () {
-        commetnController.dispose();
-      };
+      return null;
     }, []);
 
     return Scaffold(
@@ -53,6 +58,7 @@ class HomeCommentWidget extends HookConsumerWidget {
                               .read(deleteCommentProvider.notifier)
                               .deleteComment(
                                   commentId: comment!.postCommentId!);
+                          onCommentDecrement();
                           // ignore: unused_result
                           ref.refresh(getPostByIdProvider(postId));
                         },
@@ -175,11 +181,12 @@ class HomeCommentWidget extends HookConsumerWidget {
               ),
               const Spacer(),
               GestureDetector(
-                onTap: () {
+                onTap: () async {
                   if (commetnController.text.isNotEmpty) {
-                    ref.read(addCommentProvider.notifier).addComment(
+                    await ref.read(addCommentProvider.notifier).addComment(
                         comment: commetnController.text, postId: postId);
                     commetnController.clear();
+                    onCommentAdded();
                     // ignore: unused_result
                     ref.refresh(getPostByIdProvider(postId));
                   }
