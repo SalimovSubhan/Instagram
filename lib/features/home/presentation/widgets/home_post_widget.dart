@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:instagramultra/features/home/business/entities/post_entities.dart';
@@ -15,31 +14,6 @@ class HomePostWidget extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isLiked = useState<bool>(false);
-    final isLikeFavorite = useState<bool>(false);
-
-    ref.listen(
-      likePostProvider,
-      (previous, next) {
-        next.whenOrNull(
-          data: (data) {
-            isLiked.value = data['data'];
-          },
-        );
-      },
-    );
-
-    ref.listen(
-      likePostFavoriteProvider,
-      (previous, next) {
-        next.whenOrNull(
-          data: (data) {
-            isLikeFavorite.value = data['data'];
-          },
-        );
-      },
-    );
-
     return PagedSliverList<int, PostEntities>(
       pagingController: pagingController,
       builderDelegate: PagedChildBuilderDelegate(
@@ -95,29 +69,26 @@ class HomePostWidget extends HookConsumerWidget {
                   ),
                 ),
               ),
-              GestureDetector(
-                onTap: () {},
-                child: Container(
-                  width: double.infinity,
-                  decoration: const BoxDecoration(
-                    color: Colors.white38,
-                  ),
-                  child: item.images?[0].split('.').last == 'png' ||
-                          item.images?[0].split('.').last == 'jpg'
-                      ? AspectRatio(
-                          aspectRatio: 1,
-                          child: CachedNetworkImage(
-                              imageUrl:
-                                  'https://instagram-api.softclub.tj/images/${item.images?[0]}'),
-                        )
-                      : AspectRatio(
-                          aspectRatio: 1,
-                          child: VideoPlayerWidget(
-                            url:
-                                'https://instagram-api.softclub.tj/images/${item.images?.first}',
-                          ),
-                        ),
+              Container(
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  color: Colors.white38,
                 ),
+                child: item.images?[0].split('.').last == 'png' ||
+                        item.images?[0].split('.').last == 'jpg'
+                    ? AspectRatio(
+                        aspectRatio: 1,
+                        child: CachedNetworkImage(
+                            imageUrl:
+                                'https://instagram-api.softclub.tj/images/${item.images?[0]}'),
+                      )
+                    : AspectRatio(
+                        aspectRatio: 1,
+                        child: VideoPlayerWidget(
+                          url:
+                              'https://instagram-api.softclub.tj/images/${item.images?.first}',
+                        ),
+                      ),
               ),
               Container(
                 width: double.infinity,
@@ -134,24 +105,25 @@ class HomePostWidget extends HookConsumerWidget {
                               children: [
                                 IconButton(
                                   onPressed: () async {
-                                    item.postLike = item.postLike;
                                     await ref
                                         .read(likePostProvider.notifier)
                                         .likePost(postId: item.postId);
-                                    item.postLike = isLiked.value;
-                                    if (item.postLike!) {
+                                    item.postLike = !item.postLike;
+                                    if (item.postLike) {
                                       item.postLikeCount =
                                           (item.postLikeCount!) + 1;
                                     } else {
                                       item.postLikeCount =
                                           (item.postLikeCount!) - 1;
                                     }
+                                    pagingController.itemList =
+                                        List.from(pagingController.itemList!);
                                   },
                                   icon: Icon(
-                                    item.postLike!
+                                    item.postLike
                                         ? Icons.favorite
                                         : Icons.favorite_border,
-                                    color: item.postLike!
+                                    color: item.postLike
                                         ? Colors.red
                                         : Colors.black,
                                   ),
@@ -209,10 +181,12 @@ class HomePostWidget extends HookConsumerWidget {
                             await ref
                                 .read(likePostFavoriteProvider.notifier)
                                 .likePostFavorite(postId: item.postId);
-                            item.postFavorite = isLikeFavorite.value;
+                            item.postFavorite = !item.postFavorite;
+                            pagingController.itemList =
+                                List.from(pagingController.itemList!);
                           },
                           icon: Icon(
-                            item.postFavorite!
+                            item.postFavorite
                                 ? Icons.turned_in
                                 : Icons.turned_in_not,
                           ),
@@ -272,9 +246,9 @@ class HomePostWidget extends HookConsumerWidget {
           child: CircularProgressIndicator.adaptive(),
         ),
         firstPageErrorIndicatorBuilder: (context) =>
-            const Text('Чтото пошло нетак'),
+            const Center(child: Text('Чтото пошло нетак')),
         newPageErrorIndicatorBuilder: (context) =>
-            const Text('Чтото пошло нетак'),
+            const Center(child: Text('Чтото пошло нетак')),
       ),
     );
   }

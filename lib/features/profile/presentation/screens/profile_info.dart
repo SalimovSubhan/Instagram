@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instagramultra/features/profile/business/entities/profile_info_entity.dart';
 import 'package:instagramultra/features/profile/presentation/screens/image_view_screen.dart';
-import 'package:instagramultra/features/profile/utils/get_stories.dart';
+import 'package:instagramultra/core/utils/get_stories.dart';
 
 class ProfileInfo extends HookConsumerWidget {
   final ProfileInfoEntity profileInfo;
