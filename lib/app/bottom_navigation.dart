@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instagramultra/features/home/presentation/providers/home_providers.dart';
-import 'package:instagramultra/features/home/presentation/screens/home_screen.dart';
+import 'package:instagramultra/features/home/presentation/screens/home.dart';
 import 'package:instagramultra/features/profile/presentation/screens/profile_screen.dart';
 
 class BottomNavigation extends HookConsumerWidget {
@@ -13,7 +13,7 @@ class BottomNavigation extends HookConsumerWidget {
     final scrolController = ref.watch(scrolControllerProvider);
     final index = useState<int>(0);
     final List<Widget> screens = [
-      const HomeScreen(),
+      const Home(),
       const Scaffold(),
       const Scaffold(),
       const Scaffold(),
