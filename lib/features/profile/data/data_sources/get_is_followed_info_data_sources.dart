@@ -1,7 +1,7 @@
 import 'package:instagramultra/core/network/api_end_pont.dart';
 import 'package:instagramultra/core/network/dio_service.dart';
 import 'package:instagramultra/core/utils/log_service.dart';
- 
+
 class GetIsFollowedInfoDataSources {
   LogService log = LogService();
   final DioService dio;
@@ -14,9 +14,9 @@ class GetIsFollowedInfoDataSources {
     final response = await dio.get(url: url);
     if (response.statusCode == 200) {
       log.info(
-          '${response.statusCode}  :Get Followers Info successfully : ${response.data['data']}');
+          '${response.statusCode}  :Get Is Followed Info successfully : ${response.data['data']}');
     } else {
-      log.error('${response.statusCode}:Get Followers info ${response.data}');
+      log.error('${response.statusCode}:Get Is Followed info ${response.data}');
     }
     return response.data['data']['isSubscriber'] ?? false;
   }

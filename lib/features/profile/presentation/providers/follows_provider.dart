@@ -3,7 +3,7 @@ import 'package:instagramultra/features/profile/business/entities/follow_entity.
 import 'package:instagramultra/features/profile/presentation/providers/profile_proivders.dart';
 import 'package:riverpod/riverpod.dart';
 
-final getFollowsInfoProivder = StateNotifierProvider.family<FollowsController,
+final getFollowsInfoProvider = StateNotifierProvider.family<FollowsController,
     AsyncValue<List<FollowEntity>>, String>(
   (ref, String userId) => FollowsController(ref, userId: userId),
 );
@@ -17,9 +17,9 @@ class FollowsController extends StateNotifier<AsyncValue<List<FollowEntity>>> {
   }
   Future<void> getFollows() async {
     try {
-      state = const AsyncLoading(); 
+      state = const AsyncLoading();
       final follows =
-          await ref.read(getUseCaseProvider).getFollowsInfo(userId: userId);
+          await ref.read(getFollowsInfoUseCases).getFollowsInfo(userId: userId);
       state = AsyncData(follows);
     } catch (e, st) {
       state = AsyncError(e, st);

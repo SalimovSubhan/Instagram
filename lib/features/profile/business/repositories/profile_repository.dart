@@ -6,4 +6,5 @@ abstract class ProfileRepository {
   Future<List<FollowEntity>> getFollowersInfo({required String userId});
   Future<List<FollowEntity>> getFollowsInfo({required String userId});
   Future<bool> getIsFollowed({required String userId});
+  Future<void> followUserByUserId({required String userId});
 }

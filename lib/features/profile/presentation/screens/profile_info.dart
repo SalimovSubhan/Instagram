@@ -72,7 +72,12 @@ class ProfileInfo extends HookConsumerWidget {
               ProfileInfoItem(
                 infoCount: profileInfo.subscriptionsCount ?? 0,
                 title: 'Follows',
-                onTap: () {},
+                onTap: () {
+                  context.push('/followers', extra: {
+                    'initialIndex': 1,
+                    'userId': myId,
+                  });
+                },
               )
             ],
           )
