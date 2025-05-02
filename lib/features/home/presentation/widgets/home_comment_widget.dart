@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -47,6 +48,12 @@ class HomeCommentWidget extends HookConsumerWidget {
               ),
               post.when(
                 data: (data) {
+                  if (data.comments == null || data.comments!.isEmpty) {
+                    return const Padding(
+                      padding: EdgeInsets.only(top: 150),
+                      child: Center(child: Text('Пока нет коментов')),
+                    );
+                  }
                   return ListView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
@@ -78,6 +85,13 @@ class HomeCommentWidget extends HookConsumerWidget {
                                             null
                                         ? 'https://instagram-api.softclub.tj/images/${comment?.userImage}'
                                         : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3r8NVoEX5mtT_ko24SieILHQ9wemn2y5h3Q&s'),
+                                  ),
+                                ),
+                                child: ClipOval(
+                                  child: CachedNetworkImage(
+                                    imageUrl: comment?.userImage != null
+                                        ? 'https://instagram-api.softclub.tj/images/${comment?.userImage}'
+                                        : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3r8NVoEX5mtT_ko24SieILHQ9wemn2y5h3Q&s',
                                   ),
                                 ),
                               ),

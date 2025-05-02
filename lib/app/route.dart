@@ -3,7 +3,7 @@ import 'package:instagramultra/app/bottom_navigation.dart';
 import 'package:instagramultra/app/splash_screen.dart';
 import 'package:instagramultra/features/auth/presentation/screens/login_screen.dart';
 import 'package:instagramultra/features/auth/presentation/screens/register_screen.dart';
-import 'package:instagramultra/features/home/presentation/screens/home_screen.dart';
+import 'package:instagramultra/features/home/presentation/screens/home.dart';
 import 'package:instagramultra/features/profile/presentation/screens/follow_screen.dart';
 import 'package:instagramultra/features/profile/presentation/screens/profile_screen.dart';
 
@@ -22,8 +22,7 @@ final router = GoRouter(
 
     //home
     GoRoute(
-        path: '/',
-        builder: (context, state) => const HomeScreen()), // Главный экран
+        path: '/', builder: (context, state) => const Home()), // Главный экран
     //Profile
     GoRoute(
         path: '/profile',

@@ -51,7 +51,6 @@ class HomeScreen extends HookConsumerWidget {
         },
         child: CustomScrollView(
           controller: scrolController,
-          physics: const AlwaysScrollableScrollPhysics(),
           slivers: [
             const HomeAppbarWidget(),
             const HomeStoriesWidget(),
