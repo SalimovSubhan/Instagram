@@ -6,6 +6,6 @@ class FollowUserByIdUseCases {
   FollowUserByIdUseCases({required this.profileRepository});
 
   Future<void> followUserById({required String userId}) async {
-    return profileRepository.followUserByUserId(userId: userId);
+    profileRepository.followUserByUserId(userId: userId);
   }
 }

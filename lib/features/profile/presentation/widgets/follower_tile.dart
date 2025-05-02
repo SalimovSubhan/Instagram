@@ -3,6 +3,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instagramultra/features/profile/business/entities/follow_entity.dart';
 import 'package:instagramultra/features/profile/presentation/providers/follow_user_by_id_provider.dart';
 import 'package:instagramultra/features/profile/presentation/providers/is_follower_provider.dart';
+import 'package:instagramultra/features/profile/presentation/providers/un_follow_user_by_id_provider.dart';
+import 'package:instagramultra/features/profile/presentation/widgets/follow_button.dart';
+import 'package:instagramultra/features/profile/presentation/widgets/un_follow_button.dart';
 
 class FollowerTile extends HookConsumerWidget {
   final FollowEntity followerInfo;
@@ -37,21 +40,23 @@ class FollowerTile extends HookConsumerWidget {
           isFollowed.when(
             error: (error, stackTrace) => const Text(''),
             loading: () => const CircularProgressIndicator.adaptive(),
-            data: (data) => ElevatedButton(
-              onPressed: () {
-                ref
-                    .read(followUserByIdProvider.notifier)
-                    .followUserById(userId: followerInfo.userShortInfo.userId);
-                ref.invalidate(isFolloweProvider);
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: data ? Colors.black : Colors.blue,
-              ),
-              child: Text(
-                data ? 'UnFollow' : 'Follow',
-                style: const TextStyle(color: Colors.white),
-              ),
-            ),
+            data: (data) => data
+                ? UnFollowButton(
+                    onPressed: () {
+                      ref
+                          .read(unFollowUserByIdProvider.notifier)
+                          .unFollowUserById(
+                              userId: followerInfo.userShortInfo.userId);
+                      ref.invalidate(isFolloweProvider);
+                    },
+                  )
+                : FollowButton(
+                    onPressed: () {
+                      ref.read(followUserByIdProvider.notifier).followUserById(
+                          userId: followerInfo.userShortInfo.userId);
+                      ref.invalidate(isFolloweProvider);
+                    },
+                  ),
           ),
         ],
       ),
